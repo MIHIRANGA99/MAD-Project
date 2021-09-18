@@ -28,7 +28,7 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
 
     @Override
     protected void onBindViewHolder(@NonNull dogViewHolder holder, int position, @NonNull DogRVModel model) {
-        holder.dogName.setText(model.getDogName());
+        holder.dogName.setText("Dog Name: " + model.getDogName());
         holder.dogAge.setText(model.getDogAge() + " yrs");
     }
 
