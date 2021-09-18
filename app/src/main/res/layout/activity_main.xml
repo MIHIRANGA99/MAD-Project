@@ -65,13 +65,13 @@
         android:textAllCaps="false"
         android:textColor="@color/maroon"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/bttn_lookingForDog"
+        app:layout_constraintBottom_toTopOf="@+id/bttn_rateTheDogs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/bttn_lookingForDog"
+        android:id="@+id/bttn_rateTheDogs"
         android:layout_width="230dp"
         android:layout_height="54dp"
         android:layout_marginBottom="68dp"
