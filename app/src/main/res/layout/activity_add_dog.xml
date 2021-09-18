@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profilebackground"
+    tools:context=".AddDog">
+
+    <TextView
+        android:id="@+id/loginView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:fontFamily="@font/berkshire_swash"
+        android:text="@string/create_dog_profile"
+        android:textColor="#FF9017"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_DOGNAME"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/inputtext"
+        android:ems="10"
+        android:hint="@string/name"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="@color/maroon"
+        android:textColorHint="@color/maroonHint"
+        app:layout_constraintBottom_toTopOf="@+id/et_DOGAGE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_DOGAGE"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/inputtext"
+        android:ems="10"
+        android:hint="@string/DOB"
+        android:importantForAutofill="no"
+        android:inputType="date"
+        android:textAlignment="center"
+        android:textColor="@color/maroon"
+        android:textColorHint="@color/maroonHint"
+        app:layout_constraintBottom_toTopOf="@+id/et_DOGGENDER"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_DOGGENDER"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/inputtext"
+        android:ems="10"
+        android:hint="@string/gender"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="@color/maroon"
+        android:textColorHint="@color/maroonHint"
+        app:layout_constraintBottom_toTopOf="@+id/et_DOGBREED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_DOGBREED"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/inputtext"
+        android:ems="10"
+        android:hint="@string/breed"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="@color/maroon"
+        android:textColorHint="@color/maroonHint"
+        app:layout_constraintBottom_toTopOf="@+id/et_DOGWEIGHT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_DOGWEIGHT"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/inputtext"
+        android:ems="10"
+        android:hint="@string/weight"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textColor="@color/maroon"
+        android:textColorHint="@color/maroonHint"
+        app:layout_constraintBottom_toTopOf="@+id/bttn_addDog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bttn_addDog"
+        android:layout_width="134dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="108dp"
+        android:background="@drawable/bttn_style_welcome"
+        android:elevation="4dp"
+        android:fontFamily="@font/berkshire_swash"
+        android:text="@string/add_dog"
+        android:textAllCaps="false"
+        android:textColor="@color/maroon"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

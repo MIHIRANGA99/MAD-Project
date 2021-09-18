@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">WoofNew</string>
+    <string name="bttn_login">Login</string>
+    <string name="bttn_register">Register</string>
+    <string name="bttn_looking_for_a_vet">Looking for a vet?</string>
+    <string name="bttn_looking_for_a_new_dog">Looking for a new dog?</string>
+    <string name="loginView">LOGIN</string>
+    <string name="registerView">REGISTER</string>
+    <string name="e_mail_address_ET">e-mail address</string>
+    <string name="password_ET">password</string>
+    <string name="passwordRE_ET">re-enter password</string>
+    <string name="owner_name_ET">owner name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_dog">Add Dog</string>
+    <string name="breed">breed</string>
+    <string name="gender">gender</string>
+    <string name="DOB">date of birth</string>
+    <string name="name">name</string>
+    <string name="weight">weight</string>
+    <string name="create_dog_profile">CREATE DOG PROFILE</string>
+</resources>

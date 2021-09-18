@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/google_pixel_4__4xl__2"
+    tools:context=".RegisterScreen">
+
+    <TextView
+        android:id="@+id/RegisterView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/berkshire_swash"
+        android:text="@string/registerView"
+        android:textColor="#FF9017"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_EmailReg"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/inputtext"
+        android:ems="10"
+        android:hint="@string/e_mail_address_ET"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColor="@color/maroon"
+        android:textColorHint="@color/maroonHint"
+        app:layout_constraintBottom_toTopOf="@+id/et_ownerName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/et_ownerName"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/inputtext"
+        android:ems="10"
+        android:hint="@string/owner_name_ET"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColor="@color/maroon"
+        android:textColorHint="@color/maroonHint"
+        app:layout_constraintBottom_toTopOf="@+id/et_Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_Password"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/inputtext"
+        android:ems="10"
+        android:hint="@string/password_ET"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="@color/maroon"
+        android:textColorHint="@color/maroonHint"
+        app:layout_constraintBottom_toTopOf="@+id/et_PasswordRE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_PasswordRE"
+        android:layout_width="282dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/inputtext"
+        android:ems="10"
+        android:hint="@string/passwordRE_ET"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="@color/maroon"
+        android:textColorHint="@color/maroonHint"
+        app:layout_constraintBottom_toTopOf="@+id/bttn_RegisterPge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bttn_RegisterPge"
+        android:layout_width="134dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/bttn_style_welcome"
+        android:elevation="4dp"
+        android:fontFamily="@font/berkshire_swash"
+        android:text="@string/bttn_register"
+        android:textAllCaps="false"
+        android:textColor="@color/maroon"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
