@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "683779446471",
-    "firebase_url": "https://woof-app-b51c3-default-rtdb.firebaseio.com",
-    "project_id": "woof-app-b51c3",
-    "storage_bucket": "woof-app-b51c3.appspot.com"
+    "project_number": "234937042197",
+    "firebase_url": "https://woof-14cb1-default-rtdb.firebaseio.com",
+    "project_id": "woof-14cb1",
+    "storage_bucket": "woof-14cb1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:683779446471:android:d2a39918b84d2cd36650e2",
+        "mobilesdk_app_id": "1:234937042197:android:266dbb9fedce6f1ce6d51c",
         "android_client_info": {
           "package_name": "com.example.woofnew"
         }
       },
       "oauth_client": [
         {
-          "client_id": "683779446471-nm0oqanf04aqcg65vvosp272ddvofbc4.apps.googleusercontent.com",
+          "client_id": "234937042197-mdrv7ho737qcn5asuq3gvevou5mh2sq1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAknKNlF5RI3G3zg5-MDqVwoHPR8Mm_S2U"
+          "current_key": "AIzaSyAk6E500loQ17cC8XgLiNoV1tkbdPb_pxI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "683779446471-nm0oqanf04aqcg65vvosp272ddvofbc4.apps.googleusercontent.com",
+              "client_id": "234937042197-mdrv7ho737qcn5asuq3gvevou5mh2sq1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
