@@ -21,6 +21,7 @@ public class Navigation extends AppCompatActivity {
         navigationView = findViewById(R.id.NavBar);
         getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new DogProfile()).commit();
         navigationView.setSelectedItemId(R.id.nav_home);
+        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new DogBook()).commit();
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -29,10 +30,13 @@ public class Navigation extends AppCompatActivity {
                 Fragment fragment = null;
                 switch (item.getItemId()){
                     case R.id.nav_home:
-
-                    case R.id.nav_book:
                         fragment = new DogProfile();
                         break;
+
+                    case R.id.nav_book:
+                        fragment = new DogBook();
+                        break;
+
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.body_container, fragment).commit();
 
