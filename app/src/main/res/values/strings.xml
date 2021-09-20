@@ -19,4 +19,6 @@
     <string name="name">name</string>
     <string name="weight">weight</string>
     <string name="create_dog_profile">CREATE DOG PROFILE</string>
+    <string name="profile_menu">Profile</string>
+    <string name="book_menu">Book</string>
 </resources>
