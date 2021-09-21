@@ -27,10 +27,16 @@ public class Navigation extends AppCompatActivity {
         Intent i = getIntent();
         String dog_name = i.getStringExtra("dogNAME");
         String dog_age = i.getStringExtra("dogAGE");
+        String dog_gender = i.getStringExtra("dogGENDER");
+        String dog_breed = i.getStringExtra("dogBREED");
+        String dog_weight = i.getStringExtra("dogWEIGHT");
 
         Bundle details = new Bundle();
         details.putString("dogName", dog_name);
         details.putString("dogAge", dog_age);
+        details.putString("dogGender", dog_gender);
+        details.putString("dogBreed", dog_breed);
+        details.putString("dogWeight", dog_weight);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

@@ -48,10 +48,13 @@ public class AddDog extends AppCompatActivity {
 
         addDog_bttn = findViewById(R.id.bttn_addDog);
 
+        Intent i = getIntent();
+        String userID =  i.getStringExtra("userID");
+
         progressDialog = new ProgressDialog(this);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Dogs");
+        databaseReference = firebaseDatabase.getReference("Users");
 
         addDog_bttn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,10 +79,15 @@ public class AddDog extends AppCompatActivity {
 
                         progressDialog.dismiss();
 
-                        databaseReference.child(dogID).setValue(dogRVModel);
+                        databaseReference.child(userID).child("Dogs").child(dogID).setValue(dogRVModel);
                         Toast.makeText(AddDog.this, "Your Dog Profile Created", Toast.LENGTH_SHORT).show();
 
-                        intent = new Intent(AddDog.this, Navigation.class);
+                        Intent intent = new Intent(AddDog.this, Navigation.class);
+                        intent.putExtra("dogNAME", dogName);
+                        intent.putExtra("dogAGE", dogAge);
+                        intent.putExtra("dogGENDER", dogGender);
+                        intent.putExtra("dogBREED", dogBreed);
+                        intent.putExtra("dogWEIGHT", dogWeight);
                         startActivity(intent);
                     }
 

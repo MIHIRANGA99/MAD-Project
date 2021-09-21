@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -60,7 +62,9 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
                 builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference().child("Dogs")
+                        FirebaseDatabase.getInstance().getReference().child("Users")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child("Dogs")
                                 .child(getRef(position).getKey()).removeValue();
                     }
                 });
@@ -90,6 +94,7 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
         CardView dogProfileCard;
 
         ImageButton bttn_delete;
+
 
         public dogViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class DogProfiles extends AppCompatActivity{
 
@@ -77,6 +78,11 @@ public class DogProfiles extends AppCompatActivity{
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
 
+        //---------------------------------------------------------------------USE THIS--------------------------------------------------------------------------------------------------
+        Intent i  = getIntent();
+        String ownerName = i.getStringExtra("ownerName");
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         dogProfilesRL = findViewById(R.id.RLDogProfiles);
@@ -84,16 +90,15 @@ public class DogProfiles extends AppCompatActivity{
         dogRV = (RecyclerView)findViewById(R.id.idRVDogs);
         dogRV.setLayoutManager(new LinearLayoutManager(this));
 
+
         FirebaseRecyclerOptions<DogRVModel> options =
                 new FirebaseRecyclerOptions.Builder<DogRVModel>()
-                .setQuery(firebaseDatabase.getReference().child("Dogs"), DogRVModel.class)
+                .setQuery(firebaseDatabase.getReference().child("Users").child(mUser.getUid()).child("Dogs"), DogRVModel.class)
                 .build();
+
 
         dogRVAdapter = new DogRVAdapter(options);
         dogRV.setAdapter(dogRVAdapter);
-
-
-
 
 
         //LOGOUT
@@ -114,6 +119,7 @@ public class DogProfiles extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 intent = new Intent(DogProfiles.this, AddDog.class);
+                intent.putExtra("userID", mUser.getUid().toString());
                 startActivity(intent);
             }
         });

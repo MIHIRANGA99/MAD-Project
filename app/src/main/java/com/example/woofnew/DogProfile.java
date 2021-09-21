@@ -29,8 +29,12 @@ public class DogProfile extends Fragment {
     private String mParam2;
 
     private TextView TVdogName;
+
     private String dogNAME;
     private String dogAGE;
+    private String dogGENDER;
+    private String dogBREED;
+    private String dogWeight;
 
     public DogProfile() {
         // Required empty public constructor
@@ -76,6 +80,10 @@ public class DogProfile extends Fragment {
 
         if(details != null){
             dogNAME = details.getString("dogName");
+            dogAGE = details.getString("dogAge");
+            dogGENDER = details.getString("dogGender");
+            dogBREED = details.getString("dogBreed");
+            dogWeight = details.getString("dogWeight");
         }
 
         TVdogName.setText(dogNAME);
