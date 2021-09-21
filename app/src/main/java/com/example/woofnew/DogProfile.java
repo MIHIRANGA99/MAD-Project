@@ -2,11 +2,15 @@ package com.example.woofnew;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +27,14 @@ public class DogProfile extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView TVdogName;
+
+    private String dogNAME;
+    private String dogAGE;
+    private String dogGENDER;
+    private String dogBREED;
+    private String dogWeight;
 
     public DogProfile() {
         // Required empty public constructor
@@ -49,10 +61,6 @@ public class DogProfile extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -60,5 +68,31 @@ public class DogProfile extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_dog_profile, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        TVdogName = view.findViewById(R.id.TV_dogName);
+
+        Bundle details = getArguments();
+
+        if(details != null){
+            dogNAME = details.getString("dogName");
+            dogAGE = details.getString("dogAge");
+            dogGENDER = details.getString("dogGender");
+            dogBREED = details.getString("dogBreed");
+            dogWeight = details.getString("dogWeight");
+        }
+
+        TVdogName.setText(dogNAME);
+
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+
+
     }
 }

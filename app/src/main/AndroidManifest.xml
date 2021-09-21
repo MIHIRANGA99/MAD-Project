@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoofNew">
         <activity
+            android:name=".LoginScreen_Part2"
+            android:exported="true" />
+        <activity
+            android:name=".DogsDetailsPageOne"
+            android:exported="true" />
+        <activity
             android:name=".AddDog"
             android:exported="true" />
         <activity
@@ -35,6 +41,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

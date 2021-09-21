@@ -3,7 +3,7 @@
     <string name="bttn_login">Login</string>
     <string name="bttn_register">Register</string>
     <string name="bttn_looking_for_a_vet">Looking for a vet?</string>
-    <string name="bttn_looking_for_a_new_dog">Looking for a new dog?</string>
+    <string name="bttn_looking_for_a_new_dog">Rate the dogs</string>
     <string name="loginView">LOGIN</string>
     <string name="registerView">REGISTER</string>
     <string name="e_mail_address_ET">e-mail address</string>
@@ -19,6 +19,10 @@
     <string name="name">name</string>
     <string name="weight">weight</string>
     <string name="create_dog_profile">CREATE DOG PROFILE</string>
+
     <string name="vaccinationtitle">VACCINATIONS</string>
+    <string name="profile_menu">Profile</string>
+    <string name="book_menu">Book</string>
+    <string name="next_step">Next step</string>
 
 </resources>

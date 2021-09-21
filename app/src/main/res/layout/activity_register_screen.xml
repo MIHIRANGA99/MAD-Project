@@ -33,15 +33,13 @@
         android:textAlignment="center"
         android:textColor="@color/maroon"
         android:textColorHint="@color/maroonHint"
-        app:layout_constraintBottom_toTopOf="@+id/et_ownerName"
+        app:layout_constraintBottom_toTopOf="@+id/et_Owner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/et_ownerName"
+        android:id="@+id/et_Owner"
         android:layout_width="282dp"
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"
@@ -49,13 +47,13 @@
         android:ems="10"
         android:hint="@string/owner_name_ET"
         android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:textAlignment="center"
         android:textColor="@color/maroon"
         android:textColorHint="@color/maroonHint"
-        app:layout_constraintBottom_toTopOf="@+id/et_Password"
+        app:layout_constraintBottom_toTopOf="@id/et_Password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -98,11 +96,11 @@
         android:id="@+id/bttn_RegisterPge"
         android:layout_width="134dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="132dp"
         android:background="@drawable/bttn_style_welcome"
         android:elevation="4dp"
         android:fontFamily="@font/berkshire_swash"
-        android:text="@string/bttn_register"
+        android:text="@string/next_step"
         android:textAllCaps="false"
         android:textColor="@color/maroon"
         android:textSize="20sp"

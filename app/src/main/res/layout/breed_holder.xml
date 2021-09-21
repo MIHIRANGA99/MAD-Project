@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="165dp"
+    android:id="@+id/breed_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="30dp"
+    android:layout_marginRight="20dp"
+    android:layout_height="205dp">
+
+    <LinearLayout
+        android:id="@+id/ll_background"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/splash"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/breed_dpimg"
+            android:layout_width="120dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/labrador_dp" />
+
+        <TextView
+            android:id="@+id/breed_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="17dp"
+            android:textSize="11dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Labrador Retriever" />
+
+
+        <RatingBar
+            android:id="@+id/avg_rating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:numStars="5"
+            android:progressTint="@color/yellow1"
+            android:rating="4.5"
+            android:secondaryProgressTint="@color/yellow" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

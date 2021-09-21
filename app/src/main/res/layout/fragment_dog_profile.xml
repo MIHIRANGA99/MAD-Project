@@ -1,34 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/profilebackground"
-    tools:context=".DogProfile"
-    android:orientation="vertical">
+    tools:context=".DogProfile">
 
-    <ImageView
+<LinearLayout
+    android:id="@+id/topComp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/propicbackground"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="90dp" />
+        android:orientation="vertical">
 
-    <ImageView
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/editicon"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="edit"
+            android:gravity="center_horizontal"
+            android:layout_marginRight="30dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/editicon"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="-90dp"
-        android:layout_gravity="left"/>
+        android:orientation="vertical">
 
-    <ImageView
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/propicbackground"
+            android:layout_marginTop="80dp"/>
+
+        <TextView
+            android:id="@+id/TV_dogName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DOG NAME"
+            android:gravity="center_horizontal"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/uploadicon"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="-64dp"
-        android:layout_gravity="right"/>
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/uploadicon"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="upload"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="30dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/topComp">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -119,4 +174,7 @@
         </GridLayout>
 
     </ScrollView>
-</LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
