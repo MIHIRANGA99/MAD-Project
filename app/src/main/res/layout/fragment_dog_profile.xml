@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/profilebackground"
     tools:context=".DogProfile">
 
@@ -18,7 +19,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/editDetailsBttn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/editicon"
@@ -39,11 +41,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profilePic_Profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/propicbackground"
-            android:layout_marginTop="80dp"/>
+            android:layout_marginTop="80dp"
+            app:shapeAppearanceOverlay="@style/Circular"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/maroonHint"
+            android:padding="4dp"
+            android:background="@drawable/propicbackground"
+            android:src="@drawable/propicbackground" />
 
         <TextView
             android:id="@+id/TV_dogName"
@@ -60,7 +68,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/uploadicon"

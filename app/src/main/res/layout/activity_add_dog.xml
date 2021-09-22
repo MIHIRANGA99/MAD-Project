@@ -7,18 +7,32 @@
     android:background="@drawable/profilebackground"
     tools:context=".AddDog">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profilePic_img"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FF9E21"
+        app:shapeAppearanceOverlay="@style/Circular"
+        app:layout_constraintBottom_toTopOf="@+id/et_DOGNAME"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:strokeWidth="10dp"
+        app:strokeColor="@color/maroonHint"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/loginView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/berkshire_swash"
         android:text="@string/create_dog_profile"
         android:textColor="#FF9017"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/profilePic_img"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/et_DOGNAME"
@@ -114,7 +128,7 @@
         android:id="@+id/bttn_addDog"
         android:layout_width="134dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="64dp"
         android:background="@drawable/bttn_style_welcome"
         android:elevation="4dp"
         android:fontFamily="@font/berkshire_swash"
@@ -124,7 +138,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
 
