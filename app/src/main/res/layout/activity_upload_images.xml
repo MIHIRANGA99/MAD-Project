@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/backgroundprofiles"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadImages">
+
+    <Button
+        android:id="@+id/bttn_chooseFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_a_photo"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:background="@drawable/bttn_style_welcome"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:elevation="3dp"
+        android:paddingHorizontal="20dp"/>
+
+    <EditText
+        android:id="@+id/imageTitle_ET"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/maroon"
+        android:textColorHint="@color/maroonHint"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:hint="@string/photo_title"
+        android:layout_below="@+id/bttn_chooseFile"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/inputtext"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/db_image_SIV"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@id/imageTitle_ET"
+        android:background="@drawable/photo_shape"
+        app:shapeAppearanceOverlay="@style/RoundedSquare"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_below="@id/db_image_SIV"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"/>
+
+    <Button
+        android:id="@+id/bttn_uploadFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_photo"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:background="@drawable/bttn_style_welcome"
+        android:layout_below="@id/db_image_SIV"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="50dp"
+        android:elevation="3dp"
+        android:paddingHorizontal="20dp"/>
+
+</RelativeLayout>

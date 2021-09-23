@@ -34,6 +34,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.Objects;
+
 public class UpdateDog extends AppCompatActivity {
 
     EditText name,age,gender,breed,weight;
@@ -163,7 +165,7 @@ public class UpdateDog extends AppCompatActivity {
                     progressDialog.dismiss();
                     Toast.makeText(UpdateDog.this, "Upload Successful", Toast.LENGTH_SHORT).show();
 
-                    reference.child(mUser.getUid()).child("Dogs").child(dogId).child("imageURL").setValue(uri.toString());
+                    reference.child(mUser.getUid()).child("Dogs").child(dogId).child("imageURL").setValue(Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().toString());
                 }
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                 @Override

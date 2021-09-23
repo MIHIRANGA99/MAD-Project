@@ -69,6 +69,7 @@
         android:orientation="vertical">
 
         <ImageButton
+            android:id="@+id/upload_images_bttn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/uploadicon"

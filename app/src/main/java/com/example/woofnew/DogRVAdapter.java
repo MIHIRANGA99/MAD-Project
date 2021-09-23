@@ -44,7 +44,7 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
         holder.dogName.setText(model.getDogName());
         holder.dogAge.setText(model.getDogBreed());
 
-        Glide.with(holder.dogName.getContext()).load(model.getImageURL()).into(holder.profilePic);
+        Glide.with(holder.profilePic.getContext()).load(model.getImageURL()).into(holder.profilePic);
 
         holder.dogProfileCard.setOnClickListener(new View.OnClickListener() {
             @Override

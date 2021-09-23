@@ -44,7 +44,7 @@ public class DogProfile extends Fragment {
 
     private ShapeableImageView ProfilePicSIV;
 
-    private ImageButton EditDetailsBttn;
+    private ImageButton EditDetailsBttn, uploadImagesBttn;
 
     private String dogNAME;
     private String dogAGE;
@@ -92,6 +92,16 @@ public class DogProfile extends Fragment {
         ProfilePicSIV = profile.findViewById(R.id.profilePic_Profile);
 
         EditDetailsBttn = profile.findViewById(R.id.editDetailsBttn);
+        uploadImagesBttn = profile.findViewById(R.id.upload_images_bttn);
+
+        uploadImagesBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),UploadImages.class);
+                intent.putExtra("dogId", dogID);
+                startActivity(intent);
+            }
+        });
 
         EditDetailsBttn.setOnClickListener(new View.OnClickListener() {
             @Override

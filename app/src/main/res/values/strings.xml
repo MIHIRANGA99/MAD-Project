@@ -25,5 +25,8 @@
     <string name="book_menu">Book</string>
     <string name="next_step">Next step</string>
     <string name="health">Health</string>
+    <string name="choose_a_photo">Choose a Photo</string>
+    <string name="photo_title">Photo Title</string>
+    <string name="upload_photo">Upload Photo</string>
 
 </resources>
