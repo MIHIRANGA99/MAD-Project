@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,7 +22,6 @@ public class Navigation extends AppCompatActivity {
         setContentView(R.layout.activity_navigation);
 
         navigationView = findViewById(R.id.NavBar);
-        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new DogProfile()).commit();
         navigationView.setSelectedItemId(R.id.nav_home);
         getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new DogProfile()).commit();
 
@@ -44,6 +44,7 @@ public class Navigation extends AppCompatActivity {
         details.putString("profilePicURL",profilePic_URL);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -56,6 +57,10 @@ public class Navigation extends AppCompatActivity {
 
                     case R.id.nav_book:
                         fragment = new DogBook();
+                        break;
+
+                    case R.id.nav_health:
+                        fragment = new Vaccinations();
                         break;
 
                 }

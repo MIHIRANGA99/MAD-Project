@@ -18,13 +18,6 @@ public class DogRVModel implements Parcelable {
 
     }
 
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
 
     public DogRVModel(String dogName, String dogAge, String dogGender, String dogBreed, String dogWeight, String imageURL, String dogID) {
         this.dogName = dogName;
@@ -42,6 +35,7 @@ public class DogRVModel implements Parcelable {
         dogGender = in.readString();
         dogBreed = in.readString();
         dogWeight = in.readString();
+        imageURL = in.readString();
         dogID = in.readString();
     }
 
@@ -95,6 +89,14 @@ public class DogRVModel implements Parcelable {
 
     public void setDogWeight(String dogWeight) {
         this.dogWeight = dogWeight;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     public String getDogID() {

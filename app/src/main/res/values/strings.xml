@@ -24,5 +24,6 @@
     <string name="profile_menu">Profile</string>
     <string name="book_menu">Book</string>
     <string name="next_step">Next step</string>
+    <string name="health">Health</string>
 
 </resources>

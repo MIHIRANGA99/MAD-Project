@@ -38,7 +38,6 @@ import java.util.UUID;
 public class AddDog extends AppCompatActivity {
 
     EditText et_name, et_age, et_gender, et_breed, et_weight;
-    ShapeableImageView profilePic;
     Button addDog_bttn;
 
     ProgressDialog progressDialog;
@@ -74,8 +73,6 @@ public class AddDog extends AppCompatActivity {
 
         addDog_bttn = findViewById(R.id.bttn_addDog);
 
-        profilePic = (ShapeableImageView) findViewById(R.id.profilePic_img);
-
         imageURL = "https://firebasestorage.googleapis.com/v0/b/woof-14cb1.appspot.com/o/dog-3897530_1280.png?alt=media&token=17ee8def-1146-40a2-a698-d35ca6730f59";
 
         Intent i = getIntent();
@@ -85,18 +82,6 @@ public class AddDog extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Users");
-
-        profilePic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent gallaryIntent = new Intent();
-                gallaryIntent.setAction(Intent.ACTION_GET_CONTENT);
-                gallaryIntent.setType("image/*");
-                startActivityForResult(gallaryIntent, 2);
-
-            }
-        });
 
         addDog_bttn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,14 +97,6 @@ public class AddDog extends AppCompatActivity {
                 String dogBreed = et_breed.getText().toString();
                 String dogWeight = et_weight.getText().toString();
                 dogID = UUID.randomUUID().toString();
-
-
-                if(imageUri != null){
-                    uploadToFireBase(imageUri);
-                    Toast.makeText(AddDog.this, imageURL, Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(AddDog.this, "Please Select an image", Toast.LENGTH_SHORT).show();
-                }
 
                 DogRVModel dogRVModel = new DogRVModel(dogName,dogAge,dogGender,dogBreed,dogWeight,imageURL,dogID);
 
@@ -151,54 +128,5 @@ public class AddDog extends AppCompatActivity {
                 });
             }
         });
-    }
-
-    private void uploadToFireBase(Uri uri) {
-        StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtention(uri));
-
-        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                progressDialog.dismiss();
-                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        imageURL = uri.toString();
-
-                    }
-                });
-            }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                progressDialog.setMessage("Uploading File");
-                progressDialog.setTitle("Uploading...");
-                progressDialog.show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                progressDialog.dismiss();
-                Toast.makeText(AddDog.this, "Failed to Upload Image", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private String getFileExtention(Uri mUri){
-        ContentResolver cr = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cr.getType(mUri));
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == 2 && resultCode == RESULT_OK && data != null){
-            imageUri = data.getData();
-            profilePic.setImageURI(imageUri);
-        }
     }
 }

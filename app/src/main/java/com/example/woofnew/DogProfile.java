@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link DogProfile#newInstance} factory method to
@@ -77,23 +79,19 @@ public class DogProfile extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dog_profile, container, false);
-    }
+        View profile =  inflater.inflate(R.layout.fragment_dog_profile, container, false);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        TVdogName = profile.findViewById(R.id.TV_dogName);
+        ProfilePicSIV = profile.findViewById(R.id.profilePic_Profile);
 
-        TVdogName = view.findViewById(R.id.TV_dogName);
-        ProfilePicSIV = view.findViewById(R.id.profilePic_Profile);
-
-        EditDetailsBttn = view.findViewById(R.id.editDetailsBttn);
+        EditDetailsBttn = profile.findViewById(R.id.editDetailsBttn);
 
         EditDetailsBttn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +121,7 @@ public class DogProfile extends Fragment {
         }
 
         TVdogName.setText(dogNAME);
-        Glide.with(getContext()).load(profilePic).into(ProfilePicSIV);
+        Glide.with(requireContext()).load(profilePic).into(ProfilePicSIV);
 
 
         if (getArguments() != null) {
@@ -131,6 +129,7 @@ public class DogProfile extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
+        return profile;
     }
+
 }
