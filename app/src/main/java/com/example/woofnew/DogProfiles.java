@@ -6,12 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -22,9 +24,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class DogProfiles extends AppCompatActivity{
 
@@ -38,6 +42,9 @@ public class DogProfiles extends AppCompatActivity{
     //Firebase
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+
+    //TextView
+    TextView ownerTV;
 
     //Recycler View
     RecyclerView dogRV;
@@ -75,12 +82,16 @@ public class DogProfiles extends AppCompatActivity{
         logout_bttn = findViewById(R.id.bttn_logout);
         addNewDog_bttn = findViewById(R.id.bttn_ADDNEW);
 
+        ownerTV = findViewById(R.id.ownerTV);
+
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
 
         //---------------------------------------------------------------------USE THIS--------------------------------------------------------------------------------------------------
         Intent i  = getIntent();
         String ownerName = i.getStringExtra("ownerName");
+
+//        Toast.makeText(DogProfiles.this, ownerName, Toast.LENGTH_SHORT).show();
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -91,6 +102,7 @@ public class DogProfiles extends AppCompatActivity{
         dogRV.setLayoutManager(new LinearLayoutManager(this));
 
 
+        //-----------------------------------------------------------------------------RETRIEVE FROM DATABASE-----------------------------------------------------------------
         FirebaseRecyclerOptions<DogRVModel> options =
                 new FirebaseRecyclerOptions.Builder<DogRVModel>()
                 .setQuery(firebaseDatabase.getReference().child("Users").child(mUser.getUid()).child("Dogs"), DogRVModel.class)
@@ -100,8 +112,22 @@ public class DogProfiles extends AppCompatActivity{
         dogRVAdapter = new DogRVAdapter(options);
         dogRV.setAdapter(dogRVAdapter);
 
+        firebaseDatabase.getReference().child("Users").child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ownerTV.setText(Objects.requireNonNull(snapshot.child("userName").getValue()).toString() + "'s Dogs");
+            }
 
-        //LOGOUT
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(DogProfiles.this, "Cannot Retrieve data", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+        //------------------------------------------------------------------------------------LOGOUT---------------------------------------------------------------------------
         logout_bttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,7 +140,7 @@ public class DogProfiles extends AppCompatActivity{
             }
         });
 
-        //ADD DOG
+        //----------------------------------------------------------------------------------ADD DOG INTENT---------------------------------------------------------------------------
         addNewDog_bttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

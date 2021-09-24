@@ -55,7 +55,6 @@ public class UploadImages extends AppCompatActivity {
         setContentView(R.layout.activity_upload_images);
 
         Intent intent = getIntent();
-
         String dogId = intent.getStringExtra("dogId");
 
         chooseImageBttn = findViewById(R.id.bttn_chooseFile);
@@ -70,13 +69,18 @@ public class UploadImages extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference("dogImages");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid()).child("Dogs").child(dogId).child("images");
 
+
+        //-------------------------------------------------------------------CHOOSE IMAGE INTENT------------------------------------------------------------------------------
         chooseImageBttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openFileChooser();
             }
         });
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+        //------------------------------------------------------------------UPLOAD IMAGES INTENT AND UPLOAD-------------------------------------------------------------------
         uploadImageBttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,19 +112,37 @@ public class UploadImages extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
+//                            Handler handler = new Handler();
+//                            handler.postDelayed(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    progressBar.setProgress(0);
+//                                }
+//                            }, 500);
+//
+//                            Toast.makeText(UploadImages.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+//                            Uploadpics uploadpic = new Uploadpics(imageNameET.getText().toString().trim() , taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
+//
+//                            String uploadId = mDatabaseRef.push().getKey();
+//                            mDatabaseRef.child(uploadId).setValue(uploadpic);
+
+                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
-                                public void run() {
-                                    progressBar.setProgress(0);
+                                public void onSuccess(Uri uri) {
+                                    Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            progressBar.setProgress(0);
+                                        }
+                                    }, 500);
+                                    Toast.makeText(UploadImages.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+
+                                    Uploadpics uploadpic = new Uploadpics(imageNameET.getText().toString().trim(), uri.toString());
+                                    String uploadId = mDatabaseRef.push().getKey();
+                                    mDatabaseRef.child(uploadId).setValue(uploadpic);
                                 }
-                            }, 500);
-
-                            Toast.makeText(UploadImages.this, "Upload Successful", Toast.LENGTH_SHORT).show();
-                            Uploadpics uploadpic = new Uploadpics(imageNameET.getText().toString().trim() , taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
-
-                            String uploadId = mDatabaseRef.push().getKey();
-                            mDatabaseRef.child(uploadId).setValue(uploadpic);
+                            });
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -147,6 +169,8 @@ public class UploadImages extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

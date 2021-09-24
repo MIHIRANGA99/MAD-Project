@@ -24,8 +24,10 @@ import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapter.dogViewHolder> {
 
@@ -44,8 +46,10 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
         holder.dogName.setText(model.getDogName());
         holder.dogAge.setText(model.getDogBreed());
 
-        Glide.with(holder.profilePic.getContext()).load(model.getImageURL()).into(holder.profilePic);
+        Picasso.get().load(model.getImageURL()).resize(300,300).centerCrop().into(holder.profilePic);
 
+
+        //----------------------------------------------------------------------INTENT TO SPECIFIC DOG PROFILE-----------------------------------------------------------------
         holder.dogProfileCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +64,10 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
                 holder.dogName.getContext().startActivity(intent);
             }
         });
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+        //-----------------------------------------------------------------------------DELETE DOG PROFILE FUNCTION------------------------------------------------------------
         holder.bttn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,9 +79,9 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         FirebaseDatabase.getInstance().getReference().child("Users")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
                                 .child("Dogs")
-                                .child(getRef(position).getKey()).removeValue();
+                                .child(Objects.requireNonNull(getRef(position).getKey())).removeValue();
                     }
                 });
 
@@ -87,6 +94,7 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
                 builder.show();
             }
         });
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 
     @NonNull

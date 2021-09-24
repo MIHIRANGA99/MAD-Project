@@ -6,6 +6,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +19,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -53,6 +64,15 @@ public class DogProfile extends Fragment {
     private String dogWeight;
     private String dogID;
     private String profilePic;
+
+    RecyclerView mRecyclerView;
+    ImageAdapter mAdapter;
+
+    private DatabaseReference mDatabaseRef;
+//    private List<Uploadpics> mUploads;
+
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
 
     public DogProfile() {
         // Required empty public constructor
@@ -88,21 +108,29 @@ public class DogProfile extends Fragment {
         // Inflate the layout for this fragment
         View profile =  inflater.inflate(R.layout.fragment_dog_profile, container, false);
 
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+
+        mRecyclerView = profile.findViewById(R.id.db_images_RV);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, GridLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(gridLayoutManager);
+
+
+
+
+
+
         TVdogName = profile.findViewById(R.id.TV_dogName);
         ProfilePicSIV = profile.findViewById(R.id.profilePic_Profile);
 
         EditDetailsBttn = profile.findViewById(R.id.editDetailsBttn);
         uploadImagesBttn = profile.findViewById(R.id.upload_images_bttn);
 
-        uploadImagesBttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(),UploadImages.class);
-                intent.putExtra("dogId", dogID);
-                startActivity(intent);
-            }
-        });
 
+
+
+
+        //------------------------------------------------------------------------------EDIT DOG DETAILS INTENT---------------------------------------------------------------
         EditDetailsBttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,6 +145,7 @@ public class DogProfile extends Fragment {
                 startActivity(intent);
             }
         });
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         Bundle details = getArguments();
 
@@ -131,7 +160,34 @@ public class DogProfile extends Fragment {
         }
 
         TVdogName.setText(dogNAME);
-        Glide.with(requireContext()).load(profilePic).into(ProfilePicSIV);
+        Picasso.get().load(profilePic).resize(300,300).centerCrop().into(ProfilePicSIV);
+
+
+
+
+        //----------------------------------------------------------------------UPLOAD IMAGES INTENT------------------------------------------------------------------------
+        uploadImagesBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),UploadImages.class);
+                intent.putExtra("dogId", dogID);
+                startActivity(intent);
+            }
+        });
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+        //----------------------------------------------------------------------RETRIEVE IMAGES IN DOG DASHBOARD------------------------------------------------------------
+        FirebaseRecyclerOptions<Uploadpics> options =
+                new FirebaseRecyclerOptions.Builder<Uploadpics>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid()).child("Dogs").child(dogID).child("images"), Uploadpics.class)
+                        .build();
+
+        mAdapter = new ImageAdapter(options);
+        mRecyclerView.setAdapter(mAdapter);
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
         if (getArguments() != null) {
@@ -142,4 +198,15 @@ public class DogProfile extends Fragment {
         return profile;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mAdapter.stopListening();
+    }
 }

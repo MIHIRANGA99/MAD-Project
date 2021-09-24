@@ -110,6 +110,7 @@ public class UpdateDog extends AppCompatActivity {
             }
         });
 
+        //-------------------------------------------------------------------------------------UPDATE DOG FUNCTION------------------------------------------------------------
         updateDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,12 +122,10 @@ public class UpdateDog extends AppCompatActivity {
                 reference.child(mUser.getUid()).child("Dogs").child(dogId).child("dogWeight").setValue(weight.getText().toString());
 
                 Toast.makeText(UpdateDog.this, "Details Updated", Toast.LENGTH_SHORT).show();
-                
-                Intent intent1 = new Intent(UpdateDog.this, Navigation.class);
-                startActivity(intent1);
-
             }
         });
+
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 
     private void openGallery() {
@@ -157,15 +156,27 @@ public class UpdateDog extends AppCompatActivity {
     );
 
     private void uploadFile(Uri uri) {
+
         if(uri != null){
             StorageReference fileRef = storageRef.child(System.currentTimeMillis() + "." + getFileExtension(uri));
             fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    progressDialog.dismiss();
-                    Toast.makeText(UpdateDog.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+//                    progressDialog.dismiss();
+//                    Toast.makeText(UpdateDog.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+//
+//                    reference.child(mUser.getUid()).child("Dogs").child(dogId).child("imageURL").setValue(Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().toString());
 
-                    reference.child(mUser.getUid()).child("Dogs").child(dogId).child("imageURL").setValue(Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().toString());
+                    fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+
+                            progressDialog.dismiss();
+                            Toast.makeText(UpdateDog.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+                            reference.child(mUser.getUid()).child("Dogs").child(dogId).child("imageURL").setValue(uri.toString());
+
+                        }
+                    });
                 }
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                 @Override

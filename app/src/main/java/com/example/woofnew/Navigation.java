@@ -23,7 +23,6 @@ public class Navigation extends AppCompatActivity {
 
         navigationView = findViewById(R.id.NavBar);
         navigationView.setSelectedItemId(R.id.nav_home);
-        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new DogProfile()).commit();
 
         Intent i = getIntent();
         String dog_name = i.getStringExtra("dogNAME");
@@ -42,6 +41,11 @@ public class Navigation extends AppCompatActivity {
         details.putString("dogWeight", dog_weight);
         details.putString("dogId", dog_id);
         details.putString("profilePicURL",profilePic_URL);
+
+        Fragment startFrag = new DogProfile();
+        startFrag.setArguments(details);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, startFrag).commit();
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
