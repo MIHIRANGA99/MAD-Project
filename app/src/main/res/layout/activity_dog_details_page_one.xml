@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:clipChildren="false"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:clipChildren="false"
+    android:background="@drawable/background"
+    tools:context=".DogDetailsPageOne">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -21,29 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:src="@drawable/ic_menu_bar_icon" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:layout_gravity="right|center"
-            app:cardCornerRadius="40dp"
-            app:strokeColor="@color/white"
-            app:strokeWidth="3dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:scaleType="centerCrop"
-                android:layout_height="wrap_content"
-                android:src="@drawable/prof_img" />
-
-
-        </com.google.android.material.card.MaterialCardView>
-
     </FrameLayout>
 
     <TextView
@@ -53,7 +31,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_light"
-        android:text="Rate the"
+        android:text="@string/textView"
         android:textColor="@color/light_black"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,21 +42,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Dog breeds you love"
+        android:text="@string/textView2"
         android:textColor="@color/light_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="43dp"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_shape"
-        android:hint="Search for a Dog breed"
         android:fontFamily="@font/poppins_light"
+        android:hint="@string/search"
         android:paddingHorizontal="20dp"
         android:textColorHint="@color/gray1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,15 +64,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/poppins_light"
-        android:text="Major Dog Groups"
+        android:text="@string/title1"
         android:textColor="@color/light_black"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintStart_toStartOf="@+id/search"
+        app:layout_constraintTop_toBottomOf="@+id/search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_groups"
@@ -103,28 +81,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-
-    <TextView
-        android:id="@+id/group_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/poppins_light"
-        android:text="Sporting"
-        android:textColor="@color/light_black"
-        app:layout_constraintStart_toStartOf="@+id/recycler_groups"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_groups" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_breeds"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="25dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/group_title" />
-
+        app:layout_constraintTop_toBottomOf="@+id/title1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

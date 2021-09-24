@@ -24,5 +24,10 @@
     <string name="profile_menu">Profile</string>
     <string name="book_menu">Book</string>
     <string name="next_step">Next step</string>
+    <string name="textView">Know about the</string>
+    <string name="textView2">Dog breeds you love</string>
+    <string name="title1">Major Dog Groups</string>
+    <string name="search">Search for a Dog breed</string>
+    <string name="groupName">Sporting</string>
 
 </resources>

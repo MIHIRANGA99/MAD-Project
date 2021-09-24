@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         rateDogs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this,DogsDetailsPageOne.class);
+                intent = new Intent(MainActivity.this,DogsGroups.class);
                 startActivity(intent);
             }
         });

@@ -22,22 +22,21 @@
         android:layout_gravity="center"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/img"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/groupImage"
             android:layout_width="35dp"
-            app:tint="@color/dark_orange"
-            tools:src="@drawable/ic_labrador_retriever"
-            android:layout_height="30dp"/>
+            android:layout_height="30dp"
+            android:tint="@color/dark_orange"
+            android:src="@drawable/labrador_retriever"/>
 
         <TextView
-            android:id="@+id/txt_title"
+            android:id="@+id/groupName"
             android:layout_width="wrap_content"
-            android:textColor="@color/dark_orange"
-            android:textStyle="bold"
-            android:fontFamily="@font/poppins_light"
             android:layout_height="wrap_content"
-            android:text="Sporting"/>
+            android:fontFamily="@font/poppins_light"
+            android:text="@string/groupName"
+            android:textColor="@color/dark_orange"
+            android:textStyle="bold" />
 
     </LinearLayout>
-
 </com.google.android.material.card.MaterialCardView>

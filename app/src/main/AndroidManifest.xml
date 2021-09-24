@@ -12,10 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoofNew">
         <activity
-            android:name=".LoginScreen_Part2"
-            android:exported="true" />
-        <activity
-            android:name=".DogsDetailsPageOne"
+            android:name=".DogDetailsPageOne"
             android:exported="true" />
         <activity
             android:name=".AddDog"
