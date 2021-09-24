@@ -11,18 +11,21 @@ public class DogRVModel implements Parcelable {
     private String dogGender;
     private String dogBreed;
     private String dogWeight;
+    private String imageURL;
     private String dogID;
 
     public DogRVModel(){
 
     }
 
-    public DogRVModel(String dogName, String dogAge, String dogGender, String dogBreed, String dogWeight, String dogID) {
+
+    public DogRVModel(String dogName, String dogAge, String dogGender, String dogBreed, String dogWeight, String imageURL, String dogID) {
         this.dogName = dogName;
         this.dogAge = dogAge;
         this.dogGender = dogGender;
         this.dogBreed = dogBreed;
         this.dogWeight = dogWeight;
+        this.imageURL = imageURL;
         this.dogID = dogID;
     }
 
@@ -32,6 +35,7 @@ public class DogRVModel implements Parcelable {
         dogGender = in.readString();
         dogBreed = in.readString();
         dogWeight = in.readString();
+        imageURL = in.readString();
         dogID = in.readString();
     }
 
@@ -87,6 +91,14 @@ public class DogRVModel implements Parcelable {
         this.dogWeight = dogWeight;
     }
 
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
     public String getDogID() {
         return dogID;
     }
@@ -107,6 +119,7 @@ public class DogRVModel implements Parcelable {
         parcel.writeString(dogGender);
         parcel.writeString(dogBreed);
         parcel.writeString(dogWeight);
+        parcel.writeString(imageURL);
         parcel.writeString(dogID);
     }
 }

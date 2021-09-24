@@ -17,8 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,9 +40,11 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull dogViewHolder holder, final int position, @NonNull DogRVModel model) {
+    protected void onBindViewHolder(@NonNull dogViewHolder holder, @SuppressLint("RecyclerView") final int position, @NonNull DogRVModel model) {
         holder.dogName.setText(model.getDogName());
-        holder.dogAge.setText(model.getDogAge());
+        holder.dogAge.setText(model.getDogBreed());
+
+        Glide.with(holder.profilePic.getContext()).load(model.getImageURL()).into(holder.profilePic);
 
         holder.dogProfileCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +52,11 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
                 Intent intent = new Intent(holder.dogName.getContext(), Navigation.class);
                 intent.putExtra("dogNAME", model.getDogName());
                 intent.putExtra("dogAGE", model.getDogAge());
+                intent.putExtra("dogGENDER", model.getDogGender());
+                intent.putExtra("dogBREED", model.getDogBreed());
+                intent.putExtra("dogWEIGHT", model.getDogWeight());
+                intent.putExtra("dogID", model.getDogID());
+                intent.putExtra("proImgURL", model.getImageURL());
                 holder.dogName.getContext().startActivity(intent);
             }
         });
@@ -93,6 +102,8 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
         TextView dogName, dogAge;
         CardView dogProfileCard;
 
+        ShapeableImageView profilePic;
+
         ImageButton bttn_delete;
 
 
@@ -100,6 +111,8 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
             super(itemView);
             dogName = (TextView)itemView.findViewById(R.id.TVname);
             dogAge = (TextView)itemView.findViewById(R.id.TVage);
+
+            profilePic = (ShapeableImageView)itemView.findViewById(R.id.profilePic_card_img);
 
             dogProfileCard = (CardView) itemView.findViewById(R.id.card_dog);
 

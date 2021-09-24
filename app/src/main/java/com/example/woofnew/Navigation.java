@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,9 +22,8 @@ public class Navigation extends AppCompatActivity {
         setContentView(R.layout.activity_navigation);
 
         navigationView = findViewById(R.id.NavBar);
-        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new DogProfile()).commit();
         navigationView.setSelectedItemId(R.id.nav_home);
-        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new DogBook()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new DogProfile()).commit();
 
         Intent i = getIntent();
         String dog_name = i.getStringExtra("dogNAME");
@@ -31,6 +31,8 @@ public class Navigation extends AppCompatActivity {
         String dog_gender = i.getStringExtra("dogGENDER");
         String dog_breed = i.getStringExtra("dogBREED");
         String dog_weight = i.getStringExtra("dogWEIGHT");
+        String dog_id = i.getStringExtra("dogID");
+        String profilePic_URL = i.getStringExtra("proImgURL");
 
         Bundle details = new Bundle();
         details.putString("dogName", dog_name);
@@ -38,8 +40,11 @@ public class Navigation extends AppCompatActivity {
         details.putString("dogGender", dog_gender);
         details.putString("dogBreed", dog_breed);
         details.putString("dogWeight", dog_weight);
+        details.putString("dogId", dog_id);
+        details.putString("profilePicURL",profilePic_URL);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -51,7 +56,11 @@ public class Navigation extends AppCompatActivity {
                         break;
 
                     case R.id.nav_book:
-                        fragment = new DogBook(); 
+                        fragment = new DogBook();
+                        break;
+
+                    case R.id.nav_health:
+                        fragment = new Vaccinations();
                         break;
 
                 }
