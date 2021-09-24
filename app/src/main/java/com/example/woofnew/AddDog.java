@@ -83,6 +83,7 @@ public class AddDog extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Users");
 
+        //--------------------------------------------------------------------------------ADD DOG FUNCTION--------------------------------------------------------------------
         addDog_bttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +107,7 @@ public class AddDog extends AppCompatActivity {
 
                         progressDialog.dismiss();
 
-                        databaseReference.child(userID).child("Dogs").child(dogID).setValue(dogRVModel);
+                        databaseReference.child(mUser.getUid()).child("Dogs").child(dogID).setValue(dogRVModel);
                         Toast.makeText(AddDog.this, "Your Dog Profile Created", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(AddDog.this, Navigation.class);
@@ -115,7 +116,10 @@ public class AddDog extends AppCompatActivity {
                         intent.putExtra("dogGENDER", dogGender.toString());
                         intent.putExtra("dogBREED", dogBreed.toString());
                         intent.putExtra("dogWEIGHT", dogWeight.toString());
+                        intent.putExtra("dogID", dogID.toString());
+                        intent.putExtra("proImgURL", imageURL.toString());
                         startActivity(intent);
+                        finish();
                     }
 
                     @Override
@@ -128,5 +132,6 @@ public class AddDog extends AppCompatActivity {
                 });
             }
         });
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 }
