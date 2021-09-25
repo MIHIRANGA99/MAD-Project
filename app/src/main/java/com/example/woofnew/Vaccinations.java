@@ -107,6 +107,7 @@ public class Vaccinations extends Fragment {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser mUser = mAuth.getCurrentUser();
 
+        assert mUser != null;
         FirebaseRecyclerOptions<VaccinationModel> options=
         new FirebaseRecyclerOptions.Builder<VaccinationModel>()
                 .setQuery(FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid()).child("Dogs").child(dogID).child("Vaccinations"),VaccinationModel.class)

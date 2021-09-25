@@ -81,9 +81,12 @@ public class DogBook extends Fragment {
         // Inflate the layout for this fragment
         View book =  inflater.inflate(R.layout.fragment_dog_book, container, false);
 
-        dogsnamebf = book.findViewById(R.id.TV_dogName);
-        profilepicbf = book.findViewById(R.id.profilePic_Profile);
-
+        dogsnamebf = book.findViewById(R.id.dogsnamebf);
+        dogAgebf = book.findViewById(R.id.dogAgebf);
+        dogBreedbf = book.findViewById(R.id.dogBreedbf);
+        dogGenderbf = book.findViewById(R.id.dogGenderbf);
+        dogWeightbf = book.findViewById(R.id.dogWeightbf);
+        profilepicbf = book.findViewById(R.id.bookPicSIV);
 
         Bundle details = getArguments();
 
@@ -102,6 +105,7 @@ public class DogBook extends Fragment {
         dogBreedbf.setText(dogBREED);
         dogGenderbf.setText(dogGENDER);
         dogWeightbf.setText(dogWeight);
+
 
 
         Glide.with(requireContext()).load(profilePic).into(profilepicbf);
