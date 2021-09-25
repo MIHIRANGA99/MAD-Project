@@ -28,5 +28,23 @@
     <string name="choose_a_photo">Choose a Photo</string>
     <string name="photo_title">Photo Title</string>
     <string name="upload_photo">Upload Photo</string>
+    <string name="editvaccinationtitle">EDIT VACCINATION DETAILS</string>
+    <string name="vaccinationnewnumber">Vaccination Number</string>
+    <string name="newvaccinationname">Vaccination Name</string>
+    <string name="vaccinationnewduedate">Due Date</string>
+    <string name="updatebuttontext">UPDATE</string>
+    <string name="addvaccinationbuttontext">ADD</string>
+    <string name="vaccinationaddtitle">ADD A NEW VACCINE</string>
+    <string name="dogageid">Age</string>
+    <string name="dogbreedid">Breed</string>
+    <string name="doggenderid">Gender</string>
+    <string name="dogweightid">Weight</string>
+    <string name="colon1">:</string>
+    <string name="colon2">:</string>
+    <string name="colon3">:</string>
+    <string name="colon4">:</string>
+    <string name="vaccupdatebtn">UPDATE</string>
+    <string name="vaccdeletebtn">DELETE</string>
+
 
 </resources>

@@ -8,7 +8,7 @@
     tools:context=".DogBook">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/profilepicbf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -16,14 +16,14 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="-80dp"
         android:layout_marginRight="-80dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/dogsnamebf"
         app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/imgborderbf" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/dogsnamebf"
         android:layout_width="326dp"
         android:layout_height="99dp"
         android:layout_marginTop="100dp"
@@ -34,9 +34,162 @@
         android:text="TextView"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/profilepicbf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.272" />
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/propicbackground"
+        app:layout_constraintBottom_toBottomOf="@+id/profilepicbf"
+        app:layout_constraintStart_toStartOf="@+id/profilepicbf" />
+
+    <TextView
+        android:id="@+id/dogageid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="330dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/dogageid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dogbreedid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/dogbreedid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dogageid" />
+
+    <TextView
+        android:id="@+id/dogweightid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/dogweightid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doggenderid" />
+
+    <TextView
+        android:id="@+id/doggenderid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/doggenderid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dogbreedid" />
+
+    <TextView
+        android:id="@+id/colon1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="330dp"
+        android:text="@string/colon1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/colon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/colon2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colon1" />
+
+    <TextView
+        android:id="@+id/colon30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/colon3"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colon2" />
+
+    <TextView
+        android:id="@+id/colon4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/colon4"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colon30" />
+
+    <TextView
+        android:id="@+id/dogAgebf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="330dp"
+        android:text="TextView"
+        android:textSize="20sp"
+
+        app:layout_constraintStart_toEndOf="@+id/colon1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dogBreedbf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textSize="20sp"
+
+        app:layout_constraintStart_toEndOf="@+id/colon2"
+        app:layout_constraintTop_toBottomOf="@+id/dogAgebf" />
+
+    <TextView
+        android:id="@+id/dogWeightbf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textSize="20sp"
+
+        app:layout_constraintStart_toEndOf="@+id/colon4"
+        app:layout_constraintTop_toBottomOf="@+id/dogGenderbf" />
+
+    <TextView
+        android:id="@+id/dogGenderbf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textSize="20sp"
+
+        app:layout_constraintStart_toEndOf="@+id/colon30"
+        app:layout_constraintTop_toBottomOf="@+id/dogBreedbf" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

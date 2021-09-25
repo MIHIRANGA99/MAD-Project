@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoofNew">
         <activity
+            android:name=".AddNewVacc"
+            android:exported="true" />
+      //SHOULD BE REMOVED...shehan
+        <activity
+            android:name=".edit_vaccine"
+            android:exported="true" />
             android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
