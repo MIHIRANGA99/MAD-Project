@@ -23,7 +23,7 @@
             android:id="@+id/editDetailsBttn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/editicon"
+            android:background="@drawable/editicon"
             android:layout_marginTop="150dp"
             android:layout_marginRight="30dp"/>
 
@@ -50,8 +50,7 @@
             app:strokeWidth="2dp"
             app:strokeColor="@color/maroonHint"
             android:padding="4dp"
-            android:background="@drawable/propicbackground"
-            android:src="@drawable/propicbackground" />
+            android:background="@drawable/propicbackground"/>
 
         <TextView
             android:id="@+id/TV_dogName"
@@ -72,7 +71,7 @@
             android:id="@+id/upload_images_bttn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/uploadicon"
+            android:background="@drawable/uploadicon"
             android:layout_marginTop="150dp"
             android:layout_marginLeft="30dp"/>
 
@@ -88,102 +87,12 @@
 
 </LinearLayout>
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/db_images_RV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/topComp">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="60dp">
-
-        <GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="25sp"
-            android:columnCount="2"
-            android:rowOrderPreserved="true"
-            android:layout_marginBottom="50dp">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:src="@drawable/photo_shape"
-                android:layout_gravity="fill"
-                android:layout_margin="10sp" />
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:src="@drawable/photo_shape"
-                android:layout_gravity="fill"
-                android:layout_margin="10sp" />
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:src="@drawable/photo_shape"
-                android:layout_gravity="fill"
-                android:layout_margin="10sp" />
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:src="@drawable/photo_shape"
-                android:layout_gravity="fill"
-                android:layout_margin="10sp" />
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:src="@drawable/photo_shape"
-                android:layout_gravity="fill"
-                android:layout_margin="10sp" />
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:src="@drawable/photo_shape"
-                android:layout_gravity="fill"
-                android:layout_margin="10sp" />
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:src="@drawable/photo_shape"
-                android:layout_gravity="fill"
-                android:layout_margin="10sp" />
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:src="@drawable/photo_shape"
-                android:layout_gravity="fill"
-                android:layout_margin="10sp" />
-
-        </GridLayout>
-
-    </ScrollView>
-
-    </LinearLayout>
+        android:layout_marginTop="280dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="60dp"/>
 
 </RelativeLayout>

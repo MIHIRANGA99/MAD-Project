@@ -1,12 +1,22 @@
 package com.example.woofnew;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +24,13 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Vaccinations extends Fragment {
+
+    String dogNAME,dogAGE,dogGENDER,dogBREED,dogWeight,dogID;
+
+    RecyclerView vaccinationlist;
+    VaccineAdapter vacAdapter;
+
+    ImageButton btnaddnewvac;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +44,8 @@ public class Vaccinations extends Fragment {
     public Vaccinations() {
         // Required empty public constructor
     }
+
+
 
     /**
      * Use this factory method to create a new instance of
@@ -53,12 +72,64 @@ public class Vaccinations extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View vaccines = inflater.inflate(R.layout.fragment_vaccinations, container, false);
+
+        btnaddnewvac = (ImageButton) vaccines.findViewById(R.id.btnaddnewvac);
+        btnaddnewvac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), AddNewVacc.class));
+            }
+        });
+
+        Bundle details = getArguments();
+
+        if(details != null){
+            dogNAME = details.getString("dogName");
+            dogAGE = details.getString("dogAge");
+            dogGENDER = details.getString("dogGender");
+            dogBREED = details.getString("dogBreed");
+            dogWeight = details.getString("dogWeight");
+            dogID = details.getString("dogId");
+
+        }
+
+        vaccinationlist = (RecyclerView) vaccines.findViewById(R.id.vaccinationlist_rv);
+        vaccinationlist.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser mUser = mAuth.getCurrentUser();
+
+        assert mUser != null;
+        FirebaseRecyclerOptions<VaccinationModel> options=
+        new FirebaseRecyclerOptions.Builder<VaccinationModel>()
+                .setQuery(FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid()).child("Dogs").child(dogID).child("Vaccinations"),VaccinationModel.class)
+                .build();
+
+        vacAdapter = new VaccineAdapter(options);
+        vaccinationlist.setAdapter(vacAdapter);
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_vaccinations, container, false);
+        return vaccines;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        vacAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        vacAdapter.stopListening();
     }
 }
