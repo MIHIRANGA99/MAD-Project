@@ -99,7 +99,7 @@
         android:layout_marginBottom="132dp"
         android:background="@drawable/bttn_style_welcome"
         android:elevation="4dp"
-        android:fontFamily="@font/berkshire_swash"
+        android:fontFamily="@font/poppins_light"
         android:text="@string/next_step"
         android:textAllCaps="false"
         android:textColor="@color/maroon"
