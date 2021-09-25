@@ -28,5 +28,7 @@
     <string name="choose_a_photo">Choose a Photo</string>
     <string name="photo_title">Photo Title</string>
     <string name="upload_photo">Upload Photo</string>
+    <string name="search_vet">Search By Location</string>
+    <string name="veterinarian_search">VETERINARIAN</string>
 
 </resources>

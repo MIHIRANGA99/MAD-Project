@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoofNew">
         <activity
+            android:name=".VeterinarianList"
+            android:exported="true" />
+        <activity
+            android:name=".VetProfile"
+            android:exported="true" />
+        <activity
             android:name=".UploadImages"
             android:exported="true" />
         <activity

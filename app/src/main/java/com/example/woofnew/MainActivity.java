@@ -10,7 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Intent intent;
-    Button rateDogs;
+    Button rateDogs, vetList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +18,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         rateDogs = findViewById(R.id.bttn_rateTheDogs);
+        vetList = findViewById(R.id.bttn_lookingForVets);
+
         rateDogs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 intent = new Intent(MainActivity.this,DogsDetailsPageOne.class);
+                startActivity(intent);
+            }
+        });
+
+        vetList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(MainActivity.this,VeterinarianList.class);
                 startActivity(intent);
             }
         });
