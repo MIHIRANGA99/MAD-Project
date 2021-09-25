@@ -10,7 +10,7 @@ public class Uploadpics {
 
     public Uploadpics(String mName, String mImageURL) {
         if(mName.trim().equals("")){
-            mName = "image";
+            mName = "";
         }
 
         this.mName = mName;

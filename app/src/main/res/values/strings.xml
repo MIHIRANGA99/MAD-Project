@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WoofNew</string>
+    <string name="app_name">Woof</string>
     <string name="bttn_login">Login</string>
     <string name="bttn_register">Register</string>
     <string name="bttn_looking_for_a_vet">Looking for a vet?</string>
@@ -23,7 +23,7 @@
     <string name="vaccinationtitle">VACCINATIONS</string>
     <string name="profile_menu">Profile</string>
     <string name="book_menu">Book</string>
-    <string name="next_step">Next step</string>
+    <string name="next_step">Register</string>
     <string name="health">Health</string>
     <string name="choose_a_photo">Choose a Photo</string>
     <string name="photo_title">Photo Title</string>

@@ -55,7 +55,7 @@ public class UpdateDog extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
 
-    DatabaseReference reference;
+    DatabaseReference ref;
     StorageReference storageRef;
 
     @Override
@@ -89,10 +89,11 @@ public class UpdateDog extends AppCompatActivity {
         breed.setText(dogBreed.toString());
         weight.setText(dogWeight.toString());
 
-        reference = FirebaseDatabase.getInstance().getReference("Users");
+        final FirebaseDatabase ref = FirebaseDatabase.getInstance();
+
+        final DatabaseReference dbREF = ref.getReference("Users");
 
         storageRef = FirebaseStorage.getInstance().getReference("Profile Pictures");
-
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -110,23 +111,33 @@ public class UpdateDog extends AppCompatActivity {
             }
         });
 
+        //-------------------------------------------------------------------------------------UPDATE DOG FUNCTION------------------------------------------------------------
         updateDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                reference.child(mUser.getUid()).child("Dogs").child(dogId).child("dogName").setValue(name.getText().toString());
-                reference.child(mUser.getUid()).child("Dogs").child(dogId).child("dogAge").setValue(age.getText().toString());
-                reference.child(mUser.getUid()).child("Dogs").child(dogId).child("dogGender").setValue(gender.getText().toString());
-                reference.child(mUser.getUid()).child("Dogs").child(dogId).child("dogBreed").setValue(breed.getText().toString());
-                reference.child(mUser.getUid()).child("Dogs").child(dogId).child("dogWeight").setValue(weight.getText().toString());
+                dbREF.child(mUser.getUid()).child("Dogs").child(dogId).child("dogName").setValue(name.getText().toString());
+                dbREF.child(mUser.getUid()).child("Dogs").child(dogId).child("dogAge").setValue(age.getText().toString());
+                dbREF.child(mUser.getUid()).child("Dogs").child(dogId).child("dogGender").setValue(gender.getText().toString());
+                dbREF.child(mUser.getUid()).child("Dogs").child(dogId).child("dogBreed").setValue(breed.getText().toString());
+                dbREF.child(mUser.getUid()).child("Dogs").child(dogId).child("dogWeight").setValue(weight.getText().toString());
 
                 Toast.makeText(UpdateDog.this, "Details Updated", Toast.LENGTH_SHORT).show();
-                
-                Intent intent1 = new Intent(UpdateDog.this, Navigation.class);
-                startActivity(intent1);
 
+                Intent intent1 = new Intent(UpdateDog.this, Navigation.class);
+                intent1.putExtra("dogNAME", name.getText().toString());
+                intent1.putExtra("dogAGE", age.getText().toString());
+                intent1.putExtra("dogGENDER", gender.getText().toString());
+                intent1.putExtra("dogBREED", breed.getText().toString());
+                intent1.putExtra("dogWEIGHT", weight.getText().toString());
+                intent1.putExtra("dogID", dogId);
+                intent1.putExtra("proImgURL", proPicURL);
+                startActivity(intent1);
+                finish();
             }
         });
+
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 
     private void openGallery() {
@@ -157,15 +168,27 @@ public class UpdateDog extends AppCompatActivity {
     );
 
     private void uploadFile(Uri uri) {
+
         if(uri != null){
             StorageReference fileRef = storageRef.child(System.currentTimeMillis() + "." + getFileExtension(uri));
             fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    progressDialog.dismiss();
-                    Toast.makeText(UpdateDog.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+//                    progressDialog.dismiss();
+//                    Toast.makeText(UpdateDog.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+//
+//                    reference.child(mUser.getUid()).child("Dogs").child(dogId).child("imageURL").setValue(Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().toString());
 
-                    reference.child(mUser.getUid()).child("Dogs").child(dogId).child("imageURL").setValue(Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().toString());
+                    fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+
+                            progressDialog.dismiss();
+                            Toast.makeText(UpdateDog.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+                            FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid()).child("Dogs").child(dogId).child("imageURL").setValue(uri.toString());
+
+                        }
+                    });
                 }
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                 @Override
