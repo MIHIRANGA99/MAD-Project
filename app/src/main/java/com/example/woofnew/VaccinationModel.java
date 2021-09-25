@@ -8,36 +8,36 @@ public class VaccinationModel {
 
     }
 
-    String vaccnum,vaccname;
-    Date vaccdate;
+    String Vacc_num,Vacc_name;
+    String Vacc_date;
 
-    public VaccinationModel(String vaccnum, String vaccname, Date vaccdate) {
-        this.vaccnum = vaccnum;
-        this.vaccname = vaccname;
-        this.vaccdate = vaccdate;
+    public VaccinationModel(String vacc_num, String vacc_name, String vacc_date) {
+        Vacc_num = vacc_num;
+        Vacc_name = vacc_name;
+        Vacc_date = vacc_date;
     }
 
-    public String getVaccnum() {
-        return vaccnum;
+    public String getVacc_num() {
+        return Vacc_num;
     }
 
-    public void setVaccnum(String vaccnum) {
-        this.vaccnum = vaccnum;
+    public void setVacc_num(String vacc_num) {
+        Vacc_num = vacc_num;
     }
 
-    public String getVaccname() {
-        return vaccname;
+    public String getVacc_name() {
+        return Vacc_name;
     }
 
-    public void setVaccname(String vaccname) {
-        this.vaccname = vaccname;
+    public void setVacc_name(String vacc_name) {
+        Vacc_name = vacc_name;
     }
 
-    public Date getVaccdate() {
-        return vaccdate;
+    public String getVacc_date() {
+        return Vacc_date;
     }
 
-    public void setVaccdate(Date vaccdate) {
-        this.vaccdate = vaccdate;
+    public void setVacc_date(String vacc_date) {
+        Vacc_date = vacc_date;
     }
 }
