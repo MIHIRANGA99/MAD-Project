@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WoofNew</string>
+    <string name="app_name">Woof</string>
     <string name="bttn_login">Login</string>
     <string name="bttn_register">Register</string>
     <string name="bttn_looking_for_a_vet">Looking for a vet?</string>
