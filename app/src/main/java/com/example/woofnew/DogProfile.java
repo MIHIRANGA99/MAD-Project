@@ -143,6 +143,7 @@ public class DogProfile extends Fragment {
                 intent.putExtra("dogId", dogID);
                 intent.putExtra("profilePicURL", profilePic);
                 startActivity(intent);
+                requireActivity().finish();
             }
         });
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------

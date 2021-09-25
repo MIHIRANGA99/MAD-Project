@@ -46,7 +46,7 @@ public class AddDog extends AppCompatActivity {
     FirebaseUser mUser;
 
     FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+//    DatabaseReference databaseReference;
 
     StorageReference reference = FirebaseStorage.getInstance().getReference();
 
@@ -54,8 +54,6 @@ public class AddDog extends AppCompatActivity {
 
     String dogID;
     String imageURL;
-
-    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +79,7 @@ public class AddDog extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Users");
+        final DatabaseReference databaseReference = firebaseDatabase.getReference("Users");
 
         //--------------------------------------------------------------------------------ADD DOG FUNCTION--------------------------------------------------------------------
         addDog_bttn.setOnClickListener(new View.OnClickListener() {
@@ -108,17 +106,17 @@ public class AddDog extends AppCompatActivity {
                         progressDialog.dismiss();
 
                         databaseReference.child(mUser.getUid()).child("Dogs").child(dogID).setValue(dogRVModel);
-                        Toast.makeText(AddDog.this, "Your Dog Profile Created", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddDog.this, dogName +"'s Profile Created", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(AddDog.this, Navigation.class);
-                        intent.putExtra("dogNAME", dogName.toString());
-                        intent.putExtra("dogAGE", dogAge.toString());
-                        intent.putExtra("dogGENDER", dogGender.toString());
-                        intent.putExtra("dogBREED", dogBreed.toString());
-                        intent.putExtra("dogWEIGHT", dogWeight.toString());
-                        intent.putExtra("dogID", dogID.toString());
-                        intent.putExtra("proImgURL", imageURL.toString());
-                        startActivity(intent);
+                        Intent intent5 = new Intent(AddDog.this, DogProfiles.class);
+//                        intent5.putExtra("dogNAME", dogName.toString());
+//                        intent5.putExtra("dogAGE", dogAge.toString());
+//                        intent5.putExtra("dogGENDER", dogGender.toString());
+//                        intent5.putExtra("dogBREED", dogBreed.toString());
+//                        intent5.putExtra("dogWEIGHT", dogWeight.toString());
+//                        intent5.putExtra("dogID", dogID.toString());
+//                        intent5.putExtra("proImgURL", imageURL.toString());
+                        startActivity(intent5);
                         finish();
                     }
 
