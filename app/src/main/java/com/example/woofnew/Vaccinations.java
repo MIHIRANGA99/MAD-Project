@@ -85,7 +85,9 @@ public class Vaccinations extends Fragment {
         btnaddnewvac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), AddNewVacc.class));
+                Intent intent2 = new Intent(getContext(),AddNewVacc.class);
+                intent2.putExtra("dogID",dogID);
+                startActivity(intent2);
             }
         });
 
