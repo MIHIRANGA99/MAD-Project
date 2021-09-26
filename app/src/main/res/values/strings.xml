@@ -28,5 +28,13 @@
     <string name="choose_a_photo">Choose a Photo</string>
     <string name="photo_title">Photo Title</string>
     <string name="upload_photo">Upload Photo</string>
+    <string name="textView1">Learn about the</string>
+    <string name="textView2">Dog Breeds you Love</string>
+    <string name="title_groups">Dog Groups</string>
+    <string name="groupName">Sporting</string>
+    <string name="title_breeds">Dog Breeds</string>
+    <string name="title">What Are Dog Groups?</string>
+    <string name="details">The American Kennel Club places dog breeds into groups based on their particular set of uses, purposes, and characteristics. There are seven major dog groups: Working, Herding, Toy, Hound, Sporting, Non-Sporting, and Terrier. The Working Group features breeds that perform certain practical tasks, while the Hound Group features breeds that hunt. Other groups, such as the Toy Group, go by size, and the Non-Sporting group features dogs that don’t fit the characteristics and purposes of the other groups.</string>
+    <string name="grp_details">Sample Details</string>
 
 </resources>
