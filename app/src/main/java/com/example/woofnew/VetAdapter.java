@@ -38,6 +38,8 @@ public class VetAdapter extends RecyclerView.Adapter<VetAdapter.VetViewHolder> {
         User user = list.get(position);
         holder.VetName.setText("Dr."+user.getvetName());
         holder.VetAddress.setText(user.getvetAddress());
+
+
         holder.vet_CV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

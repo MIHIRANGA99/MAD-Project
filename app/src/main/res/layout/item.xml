@@ -28,7 +28,6 @@
                 android:layout_marginTop="6dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="@string/veterinarian_name"
-                android:textAllCaps="true"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
