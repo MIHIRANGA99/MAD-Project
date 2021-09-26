@@ -49,7 +49,16 @@
     <string name="colon4">:</string>
     <string name="vaccupdatebtn">UPDATE</string>
     <string name="vaccdeletebtn">DELETE</string>
-
+    <string name="doctor_name">Doctor name</string>
+    <string name="address_doc">ADDRESS</string>
+    <string name="contact_number">CONTACT NUMBER</string>
+    <string name="rate_veterinarian">RATE VETERINARIAN</string>
+    <string name="e_mail_vet">e-mail</string>
+    <string name="e_mail_doc">E-mail</string>
+    <string name="address_vetri">ADDRESS</string>
+    <string name="phone_vetri">Phone</string>
+    <string name="address_veterinarian">Address</string>
+    <string name="veterinarian_name">Vet Name</string>
 
 
 </resources>

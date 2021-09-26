@@ -24,10 +24,10 @@
         android:layout_marginTop="12dp"
         android:fontFamily="@font/poppins_semibold"
         android:gravity="center"
-        android:text="Doctor name"
+        android:text="@string/doctor_name"
         android:textAllCaps="true"
         android:textColor="@color/maroon"
-        android:textSize="30dp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/adressTV"
@@ -37,18 +37,19 @@
         android:layout_marginStart="20sp"
         android:layout_marginTop="0dp"
         android:fontFamily="@font/poppins_semibold"
-        android:text="ADDRESS"
+        android:text="@string/address_vetri"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/address_doc"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_width="383dp"
+        android:layout_height="50dp"
         android:layout_below="@id/adressTV"
-        android:layout_marginEnd="30dp"
         android:background="@drawable/tv_vet"
-        android:padding="10dp"
-        android:text="ADDRESS"
+        android:paddingStart="20dp"
+        android:paddingTop="11dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/address_doc"
         android:textAllCaps="true"
         android:textSize="20sp" />
 
@@ -58,9 +59,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/address_doc"
         android:layout_marginStart="20sp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="23dp"
         android:fontFamily="@font/poppins_semibold"
-        android:text="CONTACT DETAILS"
+        android:text="@string/contact_number"
         android:textSize="19sp" />
 
     <TextView
@@ -71,28 +72,56 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/tv_vet"
-        android:padding="10dp"
-        android:text="Phone"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingStart="20dp"
+        android:paddingTop="11dp"
+        android:text="@string/phone_vetri"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/emailTV"
+        android:layout_width="383dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phone_doc"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/e_mail_doc"
+        android:textSize="19sp" />
 
     <TextView
         android:id="@+id/mail_doc"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/phone_doc"
-        android:layout_marginTop="21dp"
+        android:layout_below="@id/emailTV"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/tv_vet"
-        android:padding="10dp"
-        android:text="e-mail"
+        android:paddingStart="20dp"
+        android:paddingTop="11dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/e_mail_vet"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mail_doc"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="@string/rate_veterinarian"
+        android:textSize="19sp" />
 
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/mail_doc"
+        android:layout_below="@id/rating"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="9dp"
         android:numStars="5" />
 
 </RelativeLayout>
