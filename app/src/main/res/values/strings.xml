@@ -23,7 +23,7 @@
     <string name="vaccinationtitle">VACCINATIONS</string>
     <string name="profile_menu">Profile</string>
     <string name="book_menu">Book</string>
-    <string name="next_step">Next step</string>
+    <string name="next_step">Register</string>
     <string name="health">Health</string>
     <string name="choose_a_photo">Choose a Photo</string>
     <string name="photo_title">Photo Title</string>
@@ -36,5 +36,23 @@
     <string name="title">What Are Dog Groups?</string>
     <string name="details">The American Kennel Club places dog breeds into groups based on their particular set of uses, purposes, and characteristics. There are seven major dog groups: Working, Herding, Toy, Hound, Sporting, Non-Sporting, and Terrier. The Working Group features breeds that perform certain practical tasks, while the Hound Group features breeds that hunt. Other groups, such as the Toy Group, go by size, and the Non-Sporting group features dogs that don’t fit the characteristics and purposes of the other groups.</string>
     <string name="grp_details">Sample Details</string>
+    <string name="editvaccinationtitle">EDIT VACCINATION DETAILS</string>
+    <string name="vaccinationnewnumber">Vaccination Number</string>
+    <string name="newvaccinationname">Vaccination Name</string>
+    <string name="vaccinationnewduedate">Due Date</string>
+    <string name="updatebuttontext">UPDATE</string>
+    <string name="addvaccinationbuttontext">ADD</string>
+    <string name="vaccinationaddtitle">ADD A NEW VACCINE</string>
+    <string name="dogageid">Age</string>
+    <string name="dogbreedid">Breed</string>
+    <string name="doggenderid">Gender</string>
+    <string name="dogweightid">Weight</string>
+    <string name="colon1">:</string>
+    <string name="colon2">:</string>
+    <string name="colon3">:</string>
+    <string name="colon4">:</string>
+    <string name="vaccupdatebtn">UPDATE</string>
+    <string name="vaccdeletebtn">DELETE</string>
+
 
 </resources>

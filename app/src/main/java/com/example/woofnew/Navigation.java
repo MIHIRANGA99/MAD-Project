@@ -61,10 +61,12 @@ public class Navigation extends AppCompatActivity {
 
                     case R.id.nav_book:
                         fragment = new DogBook();
+                        fragment.setArguments(details);
                         break;
 
                     case R.id.nav_health:
                         fragment = new Vaccinations();
+                        fragment.setArguments(details);
                         break;
 
                 }
