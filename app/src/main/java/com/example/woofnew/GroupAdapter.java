@@ -50,12 +50,10 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupHolder>
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return mList.size();
     }
-
     public class GroupHolder extends RecyclerView.ViewHolder{
         TextView groupName;
         ImageView groupImage;
