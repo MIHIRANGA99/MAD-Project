@@ -25,6 +25,12 @@
             android:exported="true" />
 
         <activity
+            android:name=".DogDetailsPageOne"
+            android:exported="true" />
+        <activity
+            android:name=".DogDetailsPageTwo"
+            android:exported="true" />
+        <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -38,13 +44,17 @@
         </activity>
 
         <activity
+            android:name=".VeterinarianList"
+            android:exported="true" />
+        <activity
+
+            android:name=".VetProfile"
+            android:exported="true" />
+        <activity
             android:name=".UploadImages"
             android:exported="true" />
         <activity
             android:name=".UpdateDog"
-            android:exported="true" />
-        <activity
-            android:name=".DogsDetailsPageOne"
             android:exported="true" />
         <activity
             android:name=".AddDog"

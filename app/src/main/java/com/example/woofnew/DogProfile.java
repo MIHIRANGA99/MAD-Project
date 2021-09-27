@@ -115,11 +115,6 @@ public class DogProfile extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, GridLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
-
-
-
-
-
         TVdogName = profile.findViewById(R.id.TV_dogName);
         ProfilePicSIV = profile.findViewById(R.id.profilePic_Profile);
 
@@ -182,8 +177,12 @@ public class DogProfile extends Fragment {
         //----------------------------------------------------------------------RETRIEVE IMAGES IN DOG DASHBOARD------------------------------------------------------------
         FirebaseRecyclerOptions<Uploadpics> options =
                 new FirebaseRecyclerOptions.Builder<Uploadpics>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid()).child("Dogs").child(dogID).child("images"), Uploadpics.class)
-                        .build();
+                        .setQuery(FirebaseDatabase.getInstance().getReference("Users")
+                                .child(mUser.getUid())
+                                .child("Dogs")
+                                .child(dogID)
+                                .child("images"), Uploadpics.class)
+                                .build();
 
         mAdapter = new ImageAdapter(options);
         mRecyclerView.setAdapter(mAdapter);
