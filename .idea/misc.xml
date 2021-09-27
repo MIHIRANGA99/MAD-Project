@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Isuru/Desktop/MAD-Project/app/src/main/res/layout/activity_dog_details_page_one.xml" value="0.2453125" />
+        <entry key="..\:/Users/Isuru/Desktop/MAD-Project/app/src/main/res/layout/breed_holder.xml" value="0.2453125" />
+        <entry key="..\:/Users/Isuru/Desktop/MAD-Project/app/src/main/res/layout/group_holder.xml" value="0.2453125" />
         <entry key="..\:/Y2S2/MAD/MAD Project/MAD-Project/app/src/main/res/layout/activity_veterinarian_list.xml" value="0.259375" />
       </map>
     </option>
