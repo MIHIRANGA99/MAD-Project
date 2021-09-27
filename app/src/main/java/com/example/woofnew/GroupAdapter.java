@@ -37,6 +37,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupHolder>
 
     @Override
     public void onBindViewHolder(@NonNull GroupHolder holder, @SuppressLint("RecyclerView") int position) {
+        holder.groupName.setText(mList.get(position).getGroupId());
         holder.groupName.setText(mList.get(position).getName());
         Glide.with(context).load(mList.get(position).getImage()).into(holder.groupImage);
 
@@ -44,6 +45,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupHolder>
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DogDetailsPageTwo.class);
+                intent.putExtra("group_id", mList.get(position).getGroupId());
                 intent.putExtra("group_name", mList.get(position).getName());
                 intent.putExtra("group_details", mList.get(position).getDetails());
                 view.getContext().startActivity(intent);

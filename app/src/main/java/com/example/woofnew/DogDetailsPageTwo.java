@@ -19,7 +19,7 @@ public class DogDetailsPageTwo extends AppCompatActivity {
 
     private RecyclerView recyclerBreeds;
 
-    String groupName;
+    String groupid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +31,9 @@ public class DogDetailsPageTwo extends AppCompatActivity {
     }
 
     private void getIncomingIntent(){
-        if (getIntent().hasExtra("group_name") && getIntent().hasExtra("group_details")){
-            groupName = getIntent().getStringExtra("group_name");
+        if (getIntent().hasExtra("group_name") && getIntent().hasExtra("group_details") && getIntent().hasExtra("group_id")){
+            groupid = getIntent().getStringExtra("group_id");
+            String groupName = getIntent().getStringExtra("group_name");
             String groupDetails = getIntent().getStringExtra("group_details");
             setData(groupName, groupDetails);
         }
@@ -53,7 +54,7 @@ public class DogDetailsPageTwo extends AppCompatActivity {
         recyclerBreeds.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         recyclerBreeds.setAdapter(breedAdapter);
 
-        FirebaseDatabase.getInstance().getReference("Groups").child(groupName).child("Breeds").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Groups").child(groupid).child("Breeds").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
