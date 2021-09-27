@@ -38,25 +38,25 @@ import java.util.Objects;
 
 public class UpdateDog extends AppCompatActivity {
 
-    EditText name,age,gender,breed,weight;
+    private EditText name,age,gender,breed,weight;
 
-    ShapeableImageView updateProPicSIV;
+    private ShapeableImageView updateProPicSIV;
 
-    Button updateDetails, uploadImageBttn;
+    private Button updateDetails, uploadImageBttn;
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
     private String dogId;
 
-    ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
-    Uri mImageUri;
+    private Uri mImageUri;
 
-    FirebaseAuth mAuth;
-    FirebaseUser mUser;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
 
-    DatabaseReference ref;
-    StorageReference storageRef;
+    private DatabaseReference ref;
+    private StorageReference storageRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

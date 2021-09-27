@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
-        android:fontFamily="@font/berkshire_swash"
+        android:fontFamily="@font/poppins_light"
         android:text="@string/registerView"
         android:textColor="#FF9017"
         android:textSize="40sp"

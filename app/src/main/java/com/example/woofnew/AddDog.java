@@ -37,23 +37,23 @@ import java.util.UUID;
 
 public class AddDog extends AppCompatActivity {
 
-    EditText et_name, et_age, et_gender, et_breed, et_weight;
-    Button addDog_bttn;
+    private EditText et_name, et_age, et_gender, et_breed, et_weight;
+    private Button addDog_bttn;
 
-    ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
-    FirebaseAuth mAuth;
-    FirebaseUser mUser;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
 
-    FirebaseDatabase firebaseDatabase;
+    private FirebaseDatabase firebaseDatabase;
 //    DatabaseReference databaseReference;
 
-    StorageReference reference = FirebaseStorage.getInstance().getReference();
+    private StorageReference reference = FirebaseStorage.getInstance().getReference();
 
-    Uri imageUri;
+    private Uri imageUri;
 
-    String dogID;
-    String imageURL;
+    private String dogID;
+    private String imageURL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,18 +97,44 @@ public class AddDog extends AppCompatActivity {
                 String dogWeight = et_weight.getText().toString();
                 dogID = UUID.randomUUID().toString();
 
+
+
                 DogRVModel dogRVModel = new DogRVModel(dogName,dogAge,dogGender,dogBreed,dogWeight,imageURL,dogID);
+                databaseReference.child(mUser.getUid()).child("Dogs").child(dogID).setValue(dogRVModel);
+                Toast.makeText(AddDog.this, dogName +"'s Profile Created", Toast.LENGTH_SHORT).show();
 
-                databaseReference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                goDogProfile();
 
-                        progressDialog.dismiss();
+                progressDialog.dismiss();
 
-                        databaseReference.child(mUser.getUid()).child("Dogs").child(dogID).setValue(dogRVModel);
-                        Toast.makeText(AddDog.this, dogName +"'s Profile Created", Toast.LENGTH_SHORT).show();
+//                databaseReference.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                        progressDialog.dismiss();
+//
+//                        databaseReference.child(mUser.getUid()).child("Dogs").child(dogID).setValue(dogRVModel);
+//                        Toast.makeText(AddDog.this, dogName +"'s Profile Created", Toast.LENGTH_SHORT).show();
+//
+//                        goDogProfile();
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        progressDialog.dismiss();
+//
+//                        Toast.makeText(AddDog.this, "Error: " + error.toString(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+            }
+        });
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    }
 
-                        Intent intent5 = new Intent(AddDog.this, DogProfiles.class);
+    public void goDogProfile(){
+        Intent intent5 = new Intent(AddDog.this, DogProfiles.class);
 //                        intent5.putExtra("dogNAME", dogName.toString());
 //                        intent5.putExtra("dogAGE", dogAge.toString());
 //                        intent5.putExtra("dogGENDER", dogGender.toString());
@@ -116,20 +142,7 @@ public class AddDog extends AppCompatActivity {
 //                        intent5.putExtra("dogWEIGHT", dogWeight.toString());
 //                        intent5.putExtra("dogID", dogID.toString());
 //                        intent5.putExtra("proImgURL", imageURL.toString());
-                        startActivity(intent5);
-                        finish();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                        progressDialog.dismiss();
-
-                        Toast.makeText(AddDog.this, "Error: " + error.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
-        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        startActivity(intent5);
+        finish();
     }
 }

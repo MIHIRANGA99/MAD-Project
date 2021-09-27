@@ -72,6 +72,7 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
         holder.bttn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                Toast.makeText(holder.dogName.getContext(), position, Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder builder = new AlertDialog.Builder(holder.dogName.getContext());
                 builder.setTitle("Are You Sure To Delete " + model.getDogName() + "'s Profile?");
                 builder.setMessage("This will remove " + model.getDogName() + "'s profile permanently");
@@ -79,10 +80,11 @@ public class DogRVAdapter extends FirebaseRecyclerAdapter<DogRVModel,DogRVAdapte
                 builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(holder.dogName.getContext(), FirebaseAuth.getInstance().getCurrentUser().getUid(), Toast.LENGTH_SHORT).show();
                         FirebaseDatabase.getInstance().getReference().child("Users")
-                                .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .child("Dogs")
-                                .child(Objects.requireNonNull(getRef(position).getKey())).removeValue();
+                                .child(model.getDogID()).removeValue();
                     }
                 });
 

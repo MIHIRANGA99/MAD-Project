@@ -3,6 +3,8 @@ package com.example.woofnew;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +12,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -17,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -32,34 +37,34 @@ import java.util.Objects;
 
 public class DogProfiles extends AppCompatActivity{
 
-    Button logout_bttn;
-    Button addNewDog_bttn;
-    
-    Intent intent;
-    FirebaseAuth mAuth;
-    FirebaseUser mUser;
+    private Button logout_bttn;
+    private Button addNewDog_bttn;
+
+    private Intent intent;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
 
     //Firebase
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
 
     //TextView
-    TextView ownerTV;
+    private TextView ownerTV;
 
     //Recycler View
-    RecyclerView dogRV;
+    private RecyclerView dogRV;
 
     //ArrayList
-    ArrayList<DogRVModel> dogRVModelArrayList;
+    private ArrayList<DogRVModel> dogRVModelArrayList;
 
     //Relative Layout
-    RelativeLayout dogProfilesRL;
+    private RelativeLayout dogProfilesRL;
 
     //Progress Dialog
-    ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
     //RV Adapter
-    DogRVAdapter dogRVAdapter;
+    private DogRVAdapter dogRVAdapter;
 
     @Override
     protected void onStart() {
@@ -78,6 +83,44 @@ public class DogProfiles extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_profiles);
 
+        //----------------------------------------------------------------------------------DRAWER------------------------------------------------------------------------------
+        MaterialToolbar toolbar = findViewById(R.id.topAcBar);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.drawer_view);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                drawerLayout.openDrawer(GravityCompat.START);
+
+            }
+        });
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                drawerLayout.closeDrawer(GravityCompat.START);
+                switch (id)
+                {
+                    case R.id.nav_profiles:
+                        Intent myDogs = new Intent(DogProfiles.this, DogProfiles.class);
+                        startActivity(myDogs);
+                        break;
+                    case R.id.nav_woopedia:
+                        Toast.makeText(DogProfiles.this, "Woopedia", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.nav_vet:
+                        Intent vet = new Intent(DogProfiles.this, VeterinarianList.class);
+                        startActivity(vet);
+                        break;
+                    default:
+                        return true;
+                }
+                return true;
+            }
+        });
+
         //Initialize
         logout_bttn = findViewById(R.id.bttn_logout);
         addNewDog_bttn = findViewById(R.id.bttn_ADDNEW);
@@ -88,8 +131,8 @@ public class DogProfiles extends AppCompatActivity{
         mUser = mAuth.getCurrentUser();
 
         //---------------------------------------------------------------------USE THIS--------------------------------------------------------------------------------------------------
-        Intent i  = getIntent();
-        String ownerName = i.getStringExtra("ownerName");
+//        Intent i  = getIntent();
+//        String ownerName = i.getStringExtra("ownerName");
 
 //        Toast.makeText(DogProfiles.this, ownerName, Toast.LENGTH_SHORT).show();
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

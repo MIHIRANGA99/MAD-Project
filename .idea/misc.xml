@@ -3,9 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
+        <entry key="..\:/AS Projects/WoofNew/app/src/main/res/layout/activity_add_dog.xml" value="0.2644927536231884" />
+        <entry key="..\:/AS Projects/WoofNew/app/src/main/res/layout/activity_dog_profiles.xml" value="0.2644927536231884" />
+        <entry key="..\:/AS Projects/WoofNew/app/src/main/res/layout/activity_dogs_details_page_one.xml" value="0.3087719298245614" />
+        <entry key="..\:/AS Projects/WoofNew/app/src/main/res/layout/activity_main.xml" value="0.26268115942028986" />
+        <entry key="..\:/AS Projects/WoofNew/app/src/main/res/layout/activity_register_screen.xml" value="0.25905797101449274" />
+        <entry key="..\:/AS Projects/WoofNew/app/src/main/res/layout/activity_veterinarian_list.xml" value="0.3087719298245614" />
+        <entry key="..\:/AS Projects/WoofNew/app/src/main/res/layout/dog_rv_item.xml" value="0.2644927536231884" />
+        <entry key="..\:/AS Projects/WoofNew/app/src/main/res/layout/drawer_header.xml" value="0.3087719298245614" />
+        <entry key="..\:/AS Projects/WoofNew/app/src/main/res/menu/nav_darwer_items.xml" value="0.3087719298245614" />
+
         <entry key="..\:/Users/Isuru/Desktop/MAD-Project/app/src/main/res/layout/activity_dog_details_page_one.xml" value="0.2453125" />
         <entry key="..\:/Users/Isuru/Desktop/MAD-Project/app/src/main/res/layout/breed_holder.xml" value="0.2453125" />
         <entry key="..\:/Users/Isuru/Desktop/MAD-Project/app/src/main/res/layout/group_holder.xml" value="0.2453125" />
+
         <entry key="..\:/Y2S2/MAD/MAD Project/MAD-Project/app/src/main/res/layout/activity_veterinarian_list.xml" value="0.259375" />
       </map>
     </option>
