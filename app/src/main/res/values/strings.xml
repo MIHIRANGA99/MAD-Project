@@ -28,6 +28,10 @@
     <string name="choose_a_photo">Choose a Photo</string>
     <string name="photo_title">Photo Title</string>
     <string name="upload_photo">Upload Photo</string>
+
+    <string name="search_vet">Search By Location</string>
+    <string name="veterinarian_search">VETERINARIAN</string>
+
     <string name="editvaccinationtitle">EDIT VACCINATION DETAILS</string>
     <string name="vaccinationnewnumber">Vaccination Number</string>
     <string name="newvaccinationname">Vaccination Name</string>
@@ -45,6 +49,16 @@
     <string name="colon4">:</string>
     <string name="vaccupdatebtn">UPDATE</string>
     <string name="vaccdeletebtn">DELETE</string>
+    <string name="doctor_name">Doctor name</string>
+    <string name="address_doc">ADDRESS</string>
+    <string name="contact_number">CONTACT NUMBER</string>
+    <string name="rate_veterinarian">RATE VETERINARIAN</string>
+    <string name="e_mail_vet">e-mail</string>
+    <string name="e_mail_doc">E-mail</string>
+    <string name="address_vetri">ADDRESS</string>
+    <string name="phone_vetri">Phone</string>
+    <string name="address_veterinarian">Address</string>
+    <string name="veterinarian_name">Vet Name</string>
 
 
 </resources>
