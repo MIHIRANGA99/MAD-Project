@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">WoofNew</string>
+    <string name="app_name">Woof</string>
     <string name="bttn_login">Login</string>
     <string name="bttn_register">Register</string>
     <string name="bttn_looking_for_a_vet">Looking for a vet?</string>
-    <string name="bttn_looking_for_a_new_dog">Looking for a new dog?</string>
+    <string name="bttn_looking_for_a_new_dog">Rate the dogs</string>
     <string name="loginView">LOGIN</string>
     <string name="registerView">REGISTER</string>
     <string name="e_mail_address_ET">e-mail address</string>
@@ -19,4 +19,32 @@
     <string name="name">name</string>
     <string name="weight">weight</string>
     <string name="create_dog_profile">CREATE DOG PROFILE</string>
+
+    <string name="vaccinationtitle">VACCINATIONS</string>
+    <string name="profile_menu">Profile</string>
+    <string name="book_menu">Book</string>
+    <string name="next_step">Register</string>
+    <string name="health">Health</string>
+    <string name="choose_a_photo">Choose a Photo</string>
+    <string name="photo_title">Photo Title</string>
+    <string name="upload_photo">Upload Photo</string>
+    <string name="editvaccinationtitle">EDIT VACCINATION DETAILS</string>
+    <string name="vaccinationnewnumber">Vaccination Number</string>
+    <string name="newvaccinationname">Vaccination Name</string>
+    <string name="vaccinationnewduedate">Due Date</string>
+    <string name="updatebuttontext">UPDATE</string>
+    <string name="addvaccinationbuttontext">ADD</string>
+    <string name="vaccinationaddtitle">ADD A NEW VACCINE</string>
+    <string name="dogageid">Age</string>
+    <string name="dogbreedid">Breed</string>
+    <string name="doggenderid">Gender</string>
+    <string name="dogweightid">Weight</string>
+    <string name="colon1">:</string>
+    <string name="colon2">:</string>
+    <string name="colon3">:</string>
+    <string name="colon4">:</string>
+    <string name="vaccupdatebtn">UPDATE</string>
+    <string name="vaccdeletebtn">DELETE</string>
+
+
 </resources>

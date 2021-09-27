@@ -8,11 +8,23 @@
     tools:context=".DogProfiles"
     android:background="@drawable/backgroundprofiles">
 
+    <TextView
+        android:id="@+id/ownerTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/maroon"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_light"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="100dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVDogs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/ownerTV"/>
 
     <Button
         android:id="@+id/bttn_ADDNEW"
@@ -26,7 +38,7 @@
 
     <Button
         android:id="@+id/bttn_logout"
-        android:layout_width="90dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:text="Logout"
         android:background="@drawable/bttn_style_logout"

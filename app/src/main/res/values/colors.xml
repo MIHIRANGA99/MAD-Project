@@ -10,4 +10,12 @@
     <color name="yellow">#FFAD41</color>
     <color name="maroon">#581414</color>
     <color name="maroonHint">#86581414</color>
+
+    <color name="gray">#A8A7A7</color>
+    <color name="red">#ff0000</color>
+    <color name="white_grey">#f8f5ff</color>
+    <color name="gray1">#BEBEBE</color>
+    <color name="yellow1">#ffe500</color>
+    <color name="dark_orange">#ff8f00</color>
+    <color name="light_black">#272727</color>
 </resources>
