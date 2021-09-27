@@ -108,7 +108,8 @@ public class DogProfiles extends AppCompatActivity{
                         startActivity(myDogs);
                         break;
                     case R.id.nav_woopedia:
-                        Toast.makeText(DogProfiles.this, "Woopedia", Toast.LENGTH_SHORT).show();
+                        Intent woopedia = new Intent(DogProfiles.this, DogDetailsPageOne.class);
+                        startActivity(woopedia);
                         break;
                     case R.id.nav_vet:
                         Intent vet = new Intent(DogProfiles.this, VeterinarianList.class);

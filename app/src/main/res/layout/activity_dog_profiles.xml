@@ -89,6 +89,6 @@
         android:layout_gravity="start"
         app:menu="@menu/nav_darwer_items"
         android:background="@drawable/nav_drawerbg"
-        app:itemTextColor="@color/maroon"/>
+        app:itemTextColor="@color/maroon" />
 
     </androidx.drawerlayout.widget.DrawerLayout>
