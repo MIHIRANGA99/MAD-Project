@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     Intent intent;
-    Button rateDogs;
+    Button rateDogs, vetList;
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -27,10 +27,20 @@ public class MainActivity extends AppCompatActivity {
         mUser = mAuth.getCurrentUser();
 
         rateDogs = findViewById(R.id.bttn_rateTheDogs);
+        vetList = findViewById(R.id.bttn_lookingForVets);
+
         rateDogs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this,DogsDetailsPageOne.class);
+                intent = new Intent(MainActivity.this,DogDetailsPageOne.class);
+                startActivity(intent);
+            }
+        });
+
+        vetList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(MainActivity.this,VeterinarianList.class);
                 startActivity(intent);
             }
         });

@@ -1,5 +1,6 @@
 package com.example.woofnew;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.google.android.material.imageview.ShapeableImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +19,26 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class DogBook extends Fragment {
+
+    private String dogbookstr;
+
+    private TextView dogsnamebf;
+    private TextView dogAgebf;
+    private TextView dogBreedbf;
+    private TextView dogGenderbf;
+    private TextView dogWeightbf;
+
+    private ShapeableImageView profilepicbf;
+
+
+    private String dogNAME;
+    private String dogAGE;
+    private String dogGENDER;
+    private String dogBREED;
+    private String dogWeight;
+    private String dogID;
+    private String profilePic;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,14 +53,7 @@ public class DogBook extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DogBook.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static DogBook newInstance(String param1, String param2) {
         DogBook fragment = new DogBook();
@@ -55,10 +73,43 @@ public class DogBook extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dog_book, container, false);
+        View book =  inflater.inflate(R.layout.fragment_dog_book, container, false);
+
+        dogsnamebf = book.findViewById(R.id.dogsnamebf);
+        dogAgebf = book.findViewById(R.id.dogAgebf);
+        dogBreedbf = book.findViewById(R.id.dogBreedbf);
+        dogGenderbf = book.findViewById(R.id.dogGenderbf);
+        dogWeightbf = book.findViewById(R.id.dogWeightbf);
+        profilepicbf = book.findViewById(R.id.bookPicSIV);
+
+        Bundle details = getArguments();
+
+        if(details != null){
+            dogNAME = details.getString("dogName");
+            dogAGE = details.getString("dogAge");
+            dogGENDER = details.getString("dogGender");
+            dogBREED = details.getString("dogBreed");
+            dogWeight = details.getString("dogWeight");
+            dogID = details.getString("dogId");
+            profilePic = details.getString("profilePicURL");
+        }
+
+        dogsnamebf.setText(dogNAME);
+        dogAgebf.setText(dogAGE);
+        dogBreedbf.setText(dogBREED);
+        dogGenderbf.setText(dogGENDER);
+        dogWeightbf.setText(dogWeight);
+
+
+
+        Glide.with(requireContext()).load(profilePic).into(profilepicbf);
+
+        return book;
     }
 }

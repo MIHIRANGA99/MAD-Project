@@ -144,9 +144,9 @@ public class DogProfiles extends AppCompatActivity{
         addNewDog_bttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(DogProfiles.this, AddDog.class);
-                intent.putExtra("userID", mUser.getUid().toString());
-                startActivity(intent);
+                Intent intent1 = new Intent(DogProfiles.this, AddDog.class);
+                intent1.putExtra("userID", mUser.getUid().toString());
+                startActivity(intent1);
             }
         });
 
