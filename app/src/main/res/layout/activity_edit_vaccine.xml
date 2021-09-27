@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editvaccinationname" />
 
     <ImageButton
-        android:id="@+id/button2"
+        android:id="@+id/vaccinationupdatebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -96,9 +96,9 @@
         android:textColor="#581414"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintBottom_toBottomOf="@+id/vaccinationupdatebutton"
+        app:layout_constraintEnd_toEndOf="@+id/vaccinationupdatebutton"
+        app:layout_constraintStart_toStartOf="@+id/vaccinationupdatebutton"
+        app:layout_constraintTop_toTopOf="@+id/vaccinationupdatebutton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -89,6 +89,8 @@ public class Vaccinations extends Fragment {
                 intent2.putExtra("dogID",dogID);
                 startActivity(intent2);
             }
+
+
         });
 
         Bundle details = getArguments();

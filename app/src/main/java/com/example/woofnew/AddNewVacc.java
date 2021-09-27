@@ -52,16 +52,18 @@ public class AddNewVacc extends AppCompatActivity {
     }
 
     private void insertintovacc(){
-        Map<String,Object>map= new HashMap<>();
-        map.put("vacc_num",vaccnumvf.getText().toString());
-        map.put("vacc_name",vaccnamevf.getText().toString());
-        map.put("vacc_date",vaccdatevf.getText().toString());
+
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser mUser = mAuth.getCurrentUser();
 
         Intent i = getIntent();
         String dogID = i.getStringExtra("dogID");
+        Map<String,Object>map= new HashMap<>();
+        map.put("vacc_num",vaccnumvf.getText().toString());
+        map.put("vacc_name",vaccnamevf.getText().toString());
+        map.put("vacc_date",vaccdatevf.getText().toString());
+        map.put("DogID", dogID);
 
         FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid()).child("Dogs").child(dogID).child("Vaccinations").push()
                 .setValue(map)

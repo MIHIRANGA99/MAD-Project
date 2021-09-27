@@ -45,6 +45,11 @@
     <string name="colon4">:</string>
     <string name="vaccupdatebtn">UPDATE</string>
     <string name="vaccdeletebtn">DELETE</string>
+    <string name="vaccinationupdatetitle">UPDATE VACCINATION</string>
+    <string name="updatevacnum">Vaccination Number</string>
+    <string name="updatevacname">Vaccination Name</string>
+    <string name="updatevacdate">Vaccination Due Date</string>
+    <string name="updatedetailsbutton">CONFIRM</string>
 
 
 </resources>
