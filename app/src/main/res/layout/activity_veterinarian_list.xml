@@ -37,7 +37,7 @@
         android:inputType="textPersonName"
         android:paddingStart="20sp"
         android:textColorHint="@color/maroonHint"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vetList_TV" />
 
