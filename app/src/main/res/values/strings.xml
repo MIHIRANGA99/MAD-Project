@@ -23,6 +23,7 @@
     <string name="vaccinationtitle">VACCINATIONS</string>
     <string name="profile_menu">Profile</string>
     <string name="book_menu">Book</string>
+
     <string name="next_step">Register</string>
     <string name="health">Health</string>
     <string name="choose_a_photo">Choose a Photo</string>
@@ -70,6 +71,8 @@
     <string name="phone_vetri">Phone</string>
     <string name="address_veterinarian">Address</string>
     <string name="veterinarian_name">Vet Name</string>
-
+    <string name="textView">Know about the</string>
+    <string name="title1">Major Dog Groups</string>
+    <string name="search">Search for a Dog breed</string>
 
 </resources>
