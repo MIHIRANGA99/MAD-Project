@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VetProfile"
+    android:background="@drawable/vet_profile">
+
+    <ImageView
+        android:id="@+id/vet_dp"
+        android:layout_width="137dp"
+        android:layout_height="128dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="136dp"
+        app:srcCompat="@drawable/vet_dp" />
+
+    <TextView
+        android:id="@+id/doc_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vet_dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="@string/doctor_name"
+        android:textColor="@color/maroon"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/adressTV"
+        android:layout_width="383dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/doc_name"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/address_vetri"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/address_doc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/adressTV"
+        android:background="@drawable/tv_vet"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingStart="20dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="30dp"
+        android:paddingTop="11dp"
+        android:text="@string/address_doc"
+        android:textAllCaps="true"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/contactTV"
+        android:layout_width="383dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/address_doc"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="23dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/contact_number"
+        android:textSize="19sp" />
+
+    <TextView
+        android:id="@+id/phone_doc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/contactTV"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/tv_vet"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingStart="20dp"
+        android:paddingTop="11dp"
+        android:text="@string/phone_vetri"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/emailTV"
+        android:layout_width="383dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phone_doc"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/e_mail_doc"
+        android:textSize="19sp" />
+
+    <TextView
+        android:id="@+id/mail_doc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/emailTV"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/tv_vet"
+        android:paddingStart="20dp"
+        android:paddingTop="11dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/e_mail_vet"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mail_doc"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="@string/rate_veterinarian"
+        android:textSize="19sp" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rating"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="9dp"
+        android:numStars="5" />
+
+</RelativeLayout>
