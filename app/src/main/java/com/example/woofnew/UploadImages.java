@@ -112,20 +112,6 @@ public class UploadImages extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-//                            Handler handler = new Handler();
-//                            handler.postDelayed(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    progressBar.setProgress(0);
-//                                }
-//                            }, 500);
-//
-//                            Toast.makeText(UploadImages.this, "Upload Successful", Toast.LENGTH_SHORT).show();
-//                            Uploadpics uploadpic = new Uploadpics(imageNameET.getText().toString().trim() , taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
-//
-//                            String uploadId = mDatabaseRef.push().getKey();
-//                            mDatabaseRef.child(uploadId).setValue(uploadpic);
-
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {

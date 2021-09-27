@@ -112,8 +112,10 @@ public class Vaccinations extends Fragment {
         assert mUser != null;
         FirebaseRecyclerOptions<VaccinationModel> options=
         new FirebaseRecyclerOptions.Builder<VaccinationModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid()).child("Dogs").child(dogID).child("Vaccinations"),VaccinationModel.class)
-                .build();
+                .setQuery(FirebaseDatabase.getInstance().getReference("Users")
+                        .child(mUser.getUid()).child("Dogs")
+                        .child(dogID).child("Vaccinations"),VaccinationModel.class)
+                        .build();
 
         vacAdapter = new VaccineAdapter(options);
         vaccinationlist.setAdapter(vacAdapter);
