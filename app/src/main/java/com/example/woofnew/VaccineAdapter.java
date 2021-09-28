@@ -1,6 +1,8 @@
 package com.example.woofnew;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,18 +49,7 @@ public class VaccineAdapter extends FirebaseRecyclerAdapter<VaccinationModel,Vac
         holder.vaccname.setText(model.getVacc_name());
         holder.vaccdate.setText(model.getVacc_date());
 
-//        String dogID = model.getDogID();
-//
-//        holder.vaccupdatebtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(holder.vaccnum.getContext(), edit_vaccine.class);
-//                intent.putExtra("vacc_num" ,model.getVacc_num());
-//                intent.putExtra("vacc_name" ,model.getVacc_name());
-//                intent.putExtra("vacc_due" ,model.getVacc_date());
-//                intent.putExtra("DogID", model.getDogID());
-//            }
-//        });
+
 
 
         holder.vaccupdatebtn.setOnClickListener(new View.OnClickListener() {
@@ -123,7 +114,38 @@ public class VaccineAdapter extends FirebaseRecyclerAdapter<VaccinationModel,Vac
         });
 
 
+        holder.vaccdeletebtn.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                FirebaseUser mUser = mAuth.getCurrentUser();
+                String dogID = model.getDogID();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(holder.vaccnum.getContext());
+
+                builder.setTitle("Vaccination will be deleted!");
+                builder.setMessage("You can not undo this deletion");
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseDatabase.getInstance().getReference("Users").child(mUser.getUid().toString()).child("Dogs").child(dogID).child("Vaccinations")
+                                .child(getRef(position).getKey()).removeValue();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(holder.vaccnum.getContext(), "Cancelled.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.show();
+            }
+        });
     }
+
+
 
 
 
@@ -157,30 +179,6 @@ public class VaccineAdapter extends FirebaseRecyclerAdapter<VaccinationModel,Vac
         }
     }
 
-//    @NonNull
-//    @Override
-//    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.vaccination_holder,parent,false);
-//        return new myViewHolder(view);
-//    }
-//
-//    class myViewHolder extends RecyclerView.ViewHolder{
-//
-//            TextView vaccnum,vaccname,vaccdate;
-//
-//            Button vaccupdatebtn,vaccdeletebtn;
-//
-//            public myViewHolder(@NonNull View itemView) {
-//                super(itemView);
-//
-//                vaccnum = (TextView)itemView.findViewById(R.id.vaccinationnumber);
-//                vaccname = (TextView)itemView.findViewById(R.id.vaccinationname);
-//                vaccdate = (TextView)itemView.findViewById(R.id.vaccinationdate);
-//
-//                vaccupdatebtn = (Button)itemView.findViewById(R.id.vaccupdatebtn);
-//                vaccdeletebtn = (Button)itemView.findViewById(R.id.vaccdeletebtn);
-//
-//            }
-//        }
+
 
 }
