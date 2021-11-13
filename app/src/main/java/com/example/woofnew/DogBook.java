@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.imageview.ShapeableImageView;
 
+import java.util.Calendar;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link DogBook#newInstance} factory method to
@@ -100,8 +102,17 @@ public class DogBook extends Fragment {
             profilePic = details.getString("profilePicURL");
         }
 
+        Calendar newC = Calendar.getInstance();
+        int curYear = newC.get(Calendar.YEAR);
+
+        String dob[] = dogAGE.split(", ");
+
+        String year = dob[2];
+
+        int difference = curYear - Integer.parseInt(year);
+
         dogsnamebf.setText(dogNAME);
-        dogAgebf.setText(dogAGE);
+        dogAgebf.setText(Integer.toString(difference));
         dogBreedbf.setText(dogBREED);
         dogGenderbf.setText(dogGENDER);
         dogWeightbf.setText(dogWeight);

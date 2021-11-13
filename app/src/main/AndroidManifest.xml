@@ -47,7 +47,6 @@
             android:name=".VeterinarianList"
             android:exported="true" />
         <activity
-
             android:name=".VetProfile"
             android:exported="true" />
         <activity

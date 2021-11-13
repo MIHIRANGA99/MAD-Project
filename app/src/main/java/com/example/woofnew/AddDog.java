@@ -3,7 +3,9 @@ package com.example.woofnew;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
@@ -13,7 +15,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,13 +35,15 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class AddDog extends AppCompatActivity {
+public class AddDog extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    private EditText et_name, et_age, et_gender, et_breed, et_weight;
+    private EditText et_name, et_gender, et_breed, et_weight;
+    private TextView et_age;
     private Button addDog_bttn;
 
     private ProgressDialog progressDialog;
@@ -55,7 +61,6 @@ public class AddDog extends AppCompatActivity {
     private String dogID;
     private String imageURL;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_dog);
@@ -65,6 +70,14 @@ public class AddDog extends AppCompatActivity {
         et_gender = findViewById(R.id.et_DOGGENDER);
         et_breed = findViewById(R.id.et_DOGBREED);
         et_weight = findViewById(R.id.et_DOGWEIGHT);
+
+        et_age.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment datePicker = new datePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "Date Picker");
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -144,5 +157,16 @@ public class AddDog extends AppCompatActivity {
 //                        intent5.putExtra("proImgURL", imageURL.toString());
         startActivity(intent5);
         finish();
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+        Calendar cal = Calendar.getInstance();
+
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+        et_age.setText(DateFormat.getDateInstance(DateFormat.FULL).format(cal.getTime()));
     }
 }
